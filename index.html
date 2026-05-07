@@ -10,7 +10,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,800..900;1,800..900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -322,18 +322,21 @@
   .price-box .pb-amount{
     position:relative;
     display:inline-flex;align-items:baseline;justify-content:center;gap:0;
-    line-height:1.15;margin:8px 0 6px;
-    padding:6px 18px 8px 6px;
+    line-height:1.2;margin:10px 0 8px;
+    padding:10px 22px 14px 10px;
+    overflow:visible;
   }
   .price-box .pb-amount .pb-num{
-    font-size:76px;font-weight:900;font-style:italic;
+    font-family:"Inter","Noto Sans JP",sans-serif;
+    font-size:74px;font-weight:900;font-style:italic;
     background:linear-gradient(135deg,#ffc400 0%,#ff8a00 45%,#ff4500 100%);
     -webkit-background-clip:text;background-clip:text;
     color:transparent;-webkit-text-fill-color:transparent;
-    letter-spacing:-.02em;line-height:1.1;
+    letter-spacing:-.015em;line-height:1.15;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
-    padding:0 4px;
+    padding:6px 4px 8px;
+    display:inline-block;
   }
   .price-box .pb-amount .pb-yen{
     font-size:32px;font-weight:900;font-style:italic;
