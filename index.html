@@ -320,33 +320,42 @@
     margin-bottom:8px;
   }
   .price-box .pb-amount{
-    display:flex;align-items:baseline;justify-content:center;gap:2px;
-    line-height:1;margin-bottom:4px;
+    position:relative;
+    display:inline-flex;align-items:baseline;justify-content:center;gap:0;
+    line-height:1;margin:8px 0 6px;
+    padding:0 18px 0 4px;
   }
   .price-box .pb-amount .pb-num{
-    position:relative;
-    font-size:80px;font-weight:900;color:var(--ink);
-    letter-spacing:-.03em;line-height:.95;
-    z-index:1;
-  }
-  .price-box .pb-amount .pb-num::after{
-    content:"";position:absolute;
-    left:-4px;right:-4px;bottom:6px;
-    height:22px;background:#ffe600;
-    z-index:-1;border-radius:2px;
+    font-size:78px;font-weight:900;font-style:italic;
+    background:linear-gradient(135deg,#ffc400 0%,#ff8a00 45%,#ff4500 100%);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+    letter-spacing:-.025em;line-height:.95;
+    text-shadow:0 1px 0 rgba(255,138,0,.15);
   }
   .price-box .pb-amount .pb-yen{
-    font-size:30px;font-weight:900;color:var(--ink);
-    letter-spacing:-.005em;
-  }
-  .price-box .pb-amount .pb-from{
-    font-size:28px;font-weight:900;color:var(--accent);
+    font-size:32px;font-weight:900;font-style:italic;
+    background:linear-gradient(135deg,#ff9500 0%,#ff5722 100%);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
     margin-left:2px;
   }
-  .price-box .pb-tax{
-    display:inline-block;
-    font-size:12px;font-weight:700;
-    color:var(--mute);
+  .price-box .pb-amount .pb-from{
+    font-size:30px;font-weight:900;font-style:italic;
+    background:linear-gradient(135deg,#ff7a00 0%,#ff3d00 100%);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+    margin-left:1px;
+  }
+  .price-box .pb-tax-badge{
+    position:absolute;top:-4px;right:-4px;
+    background:linear-gradient(135deg,#ff8a00,#ff4500);
+    color:#fff;-webkit-text-fill-color:#fff;
+    font-size:11px;font-weight:900;font-style:normal;
+    padding:3px 8px;border-radius:4px;
+    transform:rotate(8deg);
+    box-shadow:0 4px 10px rgba(255,69,0,.4);
+    letter-spacing:.04em;
   }
 
   /* Primary CTA — solid, professional */
@@ -919,13 +928,13 @@
         <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6z"/></svg>
         追加料金 一切なし
       </span>
-      <span class="pb-label">基本作業料</span>
+      <span class="pb-label">基本料金</span>
       <div class="pb-amount">
         <span class="pb-num">980</span>
         <span class="pb-yen">円</span>
         <span class="pb-from">〜</span>
+        <span class="pb-tax-badge">税込</span>
       </div>
-      <span class="pb-tax">（税込）</span>
     </div>
 
     <a class="cta-tel" href="tel:0120000000">
