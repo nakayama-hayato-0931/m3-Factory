@@ -849,6 +849,12 @@
     padding:10px 12px calc(10px + env(safe-area-inset-bottom));
     display:flex;gap:8px;
     box-shadow:0 -4px 16px rgba(0,0,0,.06);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), opacity .25s ease;
+  }
+  .sticky.hide{
+    transform:translateY(110%);
+    opacity:0;
+    pointer-events:none;
   }
   .sticky-tel{
     flex:1;
@@ -1085,10 +1091,6 @@
       <span class="accent">「ぼったくられない？」</span><br>
       その不安、先に消します。
     </h2>
-    <p class="section-sub">
-      緊急時のロードサービスでお客様が一番不安なのは"金額の不透明さ"。<br>
-      私たちは、それを根本から解決する4つのお約束をしています。
-    </p>
 
     <div class="promise-card">
       <div class="promise-list">
@@ -1415,6 +1417,22 @@
       item.classList.toggle('open');
     });
   });
+
+  // Smart sticky CTA: hide when any in-flow .cta-tel is visible
+  (function(){
+    var sticky = document.querySelector('.sticky');
+    var inflow = document.querySelectorAll('.cta-tel');
+    if(!sticky || !inflow.length || !('IntersectionObserver' in window)) return;
+    var visible = new Set();
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting) visible.add(e.target);
+        else visible.delete(e.target);
+      });
+      sticky.classList.toggle('hide', visible.size > 0);
+    },{threshold:0.35});
+    inflow.forEach(function(el){ io.observe(el); });
+  })();
 
   if('IntersectionObserver' in window){
     const io = new IntersectionObserver((entries)=>{
