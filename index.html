@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0a0a0a">
+<title>神戸・兵庫｜事故・故障 24時間ロードサービス｜最短15分到着</title>
+<meta name="description" content="神戸・兵庫対応の24時間ロードサービス。事故・故障の現場へ最短15分で駆けつけ。専門スタッフが対応、現場で書面お見積り、追加料金なし。基本作業料980円〜。電話・LINEで24時間受付。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --ink-2:#333333;
+    --mute:#666666;
+    --gray-1:#f7f7f7;
+    --gray-2:#ebebeb;
+    --gray-3:#d0d0d0;
+    --line:#e5e5e5;
+    --line-2:#f0f0f0;
+    --white:#ffffff;
+    --accent:#c8161d;
+    --accent-dark:#a01015;
+    --accent-light:#ff4d4d;
+    --green:#06c755;
+    --green-deep:#04a046;
+    --gold:#d4a017;
+
+    --radius:6px;
+    --radius-lg:10px;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.06);
+    --shadow-md:0 2px 8px rgba(0,0,0,.08);
+    --shadow-lg:0 6px 20px rgba(0,0,0,.12);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",-apple-system,BlinkMacSystemFont,"Yu Gothic",sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.75;
+    font-size:15px;
+    font-feature-settings:"palt";
+    letter-spacing:.02em;
+    padding-bottom:84px;
+  }
+  img,svg{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:transparent}
+
+  .container{max-width:520px;margin:0 auto;padding:0 20px}
+  .center{text-align:center}
+
+  /* ============================================
+     TOP BAR (brand + hamburger)
+  ============================================ */
+  .topbar{
+    background:#f5eddb;
+    border-bottom:1px solid #e2d8c0;
+    padding:10px 16px;
+    position:sticky;top:0;z-index:50;
+  }
+  .topbar-inner{
+    max-width:520px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:6px;
+    flex:1;min-width:0;
+  }
+  .brand-name{
+    font-size:19px;font-weight:900;
+    color:#2a5b8c;
+    letter-spacing:.005em;
+    white-space:nowrap;
+    line-height:1;
+  }
+  .brand-mascot{
+    width:38px;height:38px;flex-shrink:0;object-fit:contain;
+  }
+  .hamburger{
+    width:42px;height:42px;
+    display:flex;align-items:center;justify-content:center;
+    color:#2a5b8c;flex-shrink:0;
+    border-radius:6px;
+  }
+  .hamburger:active{background:rgba(42,91,140,.08)}
+
+  /* Drawer overlay */
+  .drawer-overlay{
+    position:fixed;inset:0;z-index:150;
+    background:rgba(0,0,0,.5);
+    opacity:0;pointer-events:none;
+    transition:opacity .3s ease;
+  }
+  .drawer-overlay.open{opacity:1;pointer-events:auto}
+
+  /* Drawer */
+  .drawer{
+    position:fixed;top:0;right:-100%;
+    width:82%;max-width:320px;height:100vh;
+    background:#fff;z-index:200;
+    box-shadow:-8px 0 32px rgba(0,0,0,.18);
+    transition:right .3s ease;
+    overflow-y:auto;
+    display:flex;flex-direction:column;
+  }
+  .drawer.open{right:0}
+  .drawer-head{
+    padding:16px 20px;
+    background:#f5eddb;
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid #e2d8c0;
+  }
+  .drawer-head .brand-name{font-size:16px}
+  .drawer-head .brand-mascot{width:30px;height:30px}
+  .drawer-close{
+    width:36px;height:36px;color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    border-radius:6px;
+  }
+  .drawer-close:active{background:var(--gray-2)}
+  .drawer-menu{
+    list-style:none;
+    padding:8px 20px;
+    flex:1;
+  }
+  .drawer-menu li{
+    border-bottom:1px solid var(--line-2);
+  }
+  .drawer-menu li:last-child{border-bottom:0}
+  .drawer-menu a{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 4px;
+    font-size:14.5px;font-weight:700;
+    color:var(--ink);
+  }
+  .drawer-menu a::after{
+    content:"";
+    width:7px;height:7px;
+    border-top:2px solid #aaa;
+    border-right:2px solid #aaa;
+    transform:rotate(45deg);
+  }
+  .drawer-cta{
+    display:block;margin:8px 20px 20px;
+    background:var(--accent);color:#fff;
+    padding:14px;border-radius:6px;
+    text-align:center;font-weight:800;font-size:14px;
+    letter-spacing:.02em;
+  }
+  .drawer-cta:active{background:var(--accent-dark)}
+  .drawer-sub{
+    padding:0 20px 20px;
+    font-size:11px;color:var(--mute);
+    text-align:center;line-height:1.7;
+  }
+
+  /* ============================================
+     STATUS BAR
+  ============================================ */
+  .status-bar{
+    background:var(--ink);
+    color:#fff;
+    padding:9px 16px;
+    font-size:11.5px;font-weight:500;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    letter-spacing:.04em;
+  }
+  .status-bar .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 0 0 rgba(34,197,94,.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}
+    70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}
+    100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+  }
+
+  /* ============================================
+     HERO — clean, professional, photographic
+  ============================================ */
+  .hero{
+    position:relative;
+    color:#fff;
+    padding:24px 0 32px;
+    overflow:hidden;
+    isolation:isolate;
+    background:#0a0a0a;
+  }
+  .hero-bg{
+    position:absolute;inset:0;z-index:-2;
+  }
+  .hero-bg img{
+    width:100%;height:100%;object-fit:cover;
+    opacity:1;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,
+      rgba(0,0,0,.40) 0%,
+      rgba(0,0,0,.62) 50%,
+      rgba(10,10,10,.88) 100%
+    );
+  }
+
+  /* Top trust meta */
+  .hero-meta{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 12px;
+    background:rgba(0,0,0,.55);
+    border:1px solid rgba(255,255,255,.20);
+    border-radius:4px;
+    font-size:11.5px;font-weight:600;
+    color:#f0f0f0;
+    letter-spacing:.04em;
+  }
+  .hero-meta svg{flex-shrink:0;color:var(--accent-light)}
+  .hero-meta .sep{opacity:.35;margin:0 1px}
+
+  /* Headline */
+  .hero h1{
+    margin-top:18px;
+    font-size:30px;
+    line-height:1.5;
+    font-weight:700;
+    letter-spacing:.005em;
+    color:#fff;
+  }
+  .hero h1 .hl{
+    color:var(--accent-light);
+    font-weight:900;
+  }
+  .hero h1 .hl .num{
+    font-size:1.3em;
+    margin:0 1px;
+  }
+
+  .hero-sub{
+    margin-top:14px;
+    font-size:13.5px;
+    line-height:1.85;
+    color:#d8d8d8;
+  }
+  .hero-sub b{color:#fff;font-weight:700}
+
+  /* Mascot + speech bubble callout */
+  .price-callout{
+    display:flex;align-items:center;gap:10px;
+    margin:22px 0 6px;
+  }
+  .price-callout .mascot{
+    width:74px;height:74px;flex-shrink:0;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,.45));
+  }
+  .price-callout .mascot img{
+    width:100%;height:100%;object-fit:contain;
+  }
+  .speech-bubble{
+    flex:1;background:#fff;
+    border-radius:14px;
+    padding:10px 14px;
+    font-size:12px;color:var(--ink);
+    position:relative;line-height:1.55;
+    box-shadow:0 4px 14px rgba(0,0,0,.22);
+  }
+  .speech-bubble b{
+    display:block;font-size:13.5px;font-weight:800;
+    color:var(--accent);margin-bottom:1px;
+  }
+  .speech-bubble .hi{color:var(--accent);font-weight:800}
+  .speech-bubble::before{
+    content:"";position:absolute;
+    left:-8px;top:50%;transform:translateY(-50%);
+    width:0;height:0;
+    border-top:8px solid transparent;
+    border-bottom:8px solid transparent;
+    border-right:9px solid #fff;
+  }
+
+  /* Price box — hero centerpiece */
+  .price-box{
+    position:relative;
+    margin:6px 0 16px;
+    background:#fff;
+    color:var(--ink);
+    border-radius:8px;
+    padding:24px 18px 16px;
+    border:2px solid var(--accent);
+    box-shadow:0 12px 30px rgba(0,0,0,.32);
+    text-align:center;
+  }
+  .price-box .pb-ribbon{
+    position:absolute;top:-13px;left:50%;
+    transform:translateX(-50%);
+    display:inline-flex;align-items:center;gap:5px;
+    background:var(--accent);color:#fff;
+    font-size:11.5px;font-weight:900;
+    padding:5px 14px;border-radius:4px;
+    letter-spacing:.04em;white-space:nowrap;
+    box-shadow:0 4px 10px rgba(200,22,29,.45);
+  }
+  .price-box .pb-ribbon svg{flex-shrink:0}
+  .price-box .pb-label{
+    display:inline-block;
+    font-size:11.5px;font-weight:700;
+    color:#fff;background:var(--ink);
+    padding:4px 12px;border-radius:3px;
+    letter-spacing:.06em;
+    margin-bottom:6px;
+  }
+  .price-box .pb-amount{
+    display:flex;align-items:baseline;justify-content:center;gap:2px;
+    line-height:1;margin-bottom:4px;
+  }
+  .price-box .pb-amount .pb-num{
+    position:relative;
+    font-size:64px;font-weight:900;color:var(--ink);
+    letter-spacing:-.025em;line-height:.95;
+    z-index:1;
+  }
+  .price-box .pb-amount .pb-num::after{
+    content:"";position:absolute;
+    left:-3px;right:-3px;bottom:5px;
+    height:16px;background:#ffd84d;
+    z-index:-1;border-radius:2px;
+  }
+  .price-box .pb-amount .pb-yen{
+    font-size:26px;font-weight:900;color:var(--ink);
+    letter-spacing:-.005em;
+  }
+  .price-box .pb-amount .pb-from{
+    font-size:24px;font-weight:900;color:var(--accent);
+    margin-left:2px;
+  }
+  .price-box .pb-tax{
+    display:inline-block;
+    font-size:11.5px;font-weight:700;
+    color:var(--mute);
+    margin-bottom:12px;
+  }
+  .price-box .pb-note{
+    font-size:11px;color:var(--mute);
+    line-height:1.75;
+    border-top:1px solid var(--line);
+    padding-top:11px;
+    text-align:left;
+  }
+  .price-box .pb-note b{color:var(--ink);font-weight:700}
+
+  /* Primary CTA — solid, professional */
+  .cta-tel{
+    display:block;
+    background:var(--accent);
+    color:#fff;
+    padding:16px 14px 12px;
+    border-radius:6px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.08);
+    transition:background .15s ease;
+  }
+  .cta-tel:active{background:var(--accent-dark)}
+  .cta-tel .top-label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    color:#fff;
+    letter-spacing:.04em;
+    margin-bottom:6px;
+  }
+  .cta-tel .top-label svg{
+    display:inline-block;vertical-align:-2px;margin-right:4px;
+  }
+  .cta-tel .number{
+    display:block;
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:.005em;
+    line-height:1.1;
+    color:#fff;
+  }
+  .cta-tel .footnote{
+    margin-top:8px;
+    font-size:11.5px;
+    font-weight:500;
+    color:rgba(255,255,255,.92);
+    line-height:1.6;
+  }
+
+  /* LINE CTA */
+  .cta-line{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:8px;
+    background:var(--green);
+    color:#fff;
+    padding:13px;
+    border-radius:6px;
+    font-size:13.5px;
+    font-weight:700;
+    transition:background .15s ease;
+  }
+  .cta-line:active{background:var(--green-deep)}
+
+  .hero-finalnote{
+    margin-top:14px;
+    font-size:11px;
+    color:#b0b8c0;
+    text-align:center;
+    line-height:1.85;
+  }
+
+  /* ============================================
+     SERVICES
+  ============================================ */
+  .services{
+    background:#fff;
+    padding:48px 0 40px;
+  }
+  .services .heading{text-align:center;margin-bottom:24px}
+  .services .heading .eyebrow{
+    display:inline-block;
+    font-size:11px;font-weight:700;
+    color:var(--accent);
+    letter-spacing:.16em;
+    margin-bottom:8px;
+  }
+  .services h2{
+    font-size:22px;line-height:1.5;font-weight:900;
+    letter-spacing:.005em;margin-bottom:6px;
+  }
+  .services h2 .accent{color:var(--accent)}
+  .services .lead{
+    font-size:13px;color:var(--ink-2);line-height:1.8;
+  }
+
+  .service-grid{
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .service-card{
+    display:block;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:var(--shadow-md);
+    transition:transform .2s ease, box-shadow .2s ease;
+    position:relative;
+  }
+  .service-card:active{transform:scale(.99)}
+  .sc-photo{
+    position:relative;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:#f4f4f4;
+  }
+  .sc-photo img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .sc-photo .badge-247{
+    position:absolute;top:12px;right:12px;z-index:2;
+    background:rgba(0,0,0,.78);
+    color:#fff;
+    padding:4px 10px;border-radius:4px;
+    font-size:10.5px;font-weight:700;letter-spacing:.04em;
+  }
+  .sc-body{
+    padding:18px 16px 18px;
+    text-align:center;
+  }
+  .sc-title{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:18px;font-weight:900;color:var(--ink);
+    letter-spacing:.005em;
+    margin-bottom:10px;
+  }
+  .sc-title .ico{
+    width:24px;height:24px;border-radius:4px;
+    background:rgba(200,22,29,.08);
+    border:1px solid rgba(200,22,29,.18);
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--accent);
+  }
+  .sc-desc{
+    font-size:13px;color:var(--ink-2);line-height:1.75;
+    margin-bottom:16px;
+  }
+  .sc-price{
+    display:flex;align-items:baseline;justify-content:center;gap:10px;
+    flex-wrap:wrap;
+    padding-top:14px;border-top:1px solid var(--line);
+  }
+  .sc-price .label{
+    font-size:11.5px;font-weight:600;color:var(--mute);
+  }
+  .sc-price .amount{
+    font-size:24px;font-weight:900;color:var(--accent);
+    letter-spacing:.005em;line-height:1;
+  }
+  .sc-price .amount small{
+    font-size:12px;font-weight:700;color:var(--mute);margin-left:2px;
+  }
+
+  /* ============================================
+     SECTION COMMON
+  ============================================ */
+  section{padding:48px 0}
+  .eyebrow{
+    display:inline-block;
+    font-size:11px;font-weight:700;
+    color:var(--accent);
+    letter-spacing:.16em;
+    margin-bottom:8px;
+  }
+  h2.section-title{
+    font-size:24px;line-height:1.5;font-weight:900;
+    letter-spacing:.005em;
+    margin-bottom:8px;
+  }
+  h2.section-title .accent{color:var(--accent)}
+  .section-sub{color:var(--ink-2);font-size:13px;line-height:1.85}
+
+  /* ============================================
+     ANXIETY
+  ============================================ */
+  .anxiety{background:var(--gray-1)}
+  .promise-card{
+    margin-top:24px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:24px 22px;
+    box-shadow:var(--shadow-md);
+    border-top:3px solid var(--accent);
+  }
+  .promise-list{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  .promise-item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding-bottom:14px;border-bottom:1px solid var(--line-2);
+  }
+  .promise-item:last-child{border-bottom:0;padding-bottom:0}
+  .promise-num{
+    width:28px;height:28px;border-radius:6px;
+    background:var(--ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:800;
+    flex-shrink:0;
+  }
+  .promise-text b{display:block;font-size:14px;font-weight:800;margin-bottom:2px}
+  .promise-text p{font-size:13px;color:var(--ink-2);line-height:1.75}
+  .promise-text .hi{color:var(--accent);font-weight:700}
+
+  /* ============================================
+     EMPATHY
+  ============================================ */
+  .empathy{background:#fff}
+  .empathy-list{
+    background:var(--gray-1);
+    border-radius:var(--radius-lg);
+    padding:8px 4px;
+    margin-top:18px;
+    border:1px solid var(--line);
+  }
+  .empathy-item{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:14px 16px;
+    border-bottom:1px solid var(--line);
+    font-size:14px;font-weight:500;
+  }
+  .empathy-item:last-child{border-bottom:0}
+  .empathy-check{
+    width:22px;height:22px;border-radius:50%;
+    background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;margin-top:1px;
+  }
+  .empathy-msg{
+    margin-top:18px;text-align:center;
+    font-size:13px;font-weight:700;color:var(--accent);
+  }
+
+  /* ============================================
+     USP
+  ============================================ */
+  .usp{background:var(--ink);color:#fff}
+  .usp .eyebrow{color:var(--accent-light)}
+  .usp h2.section-title{color:#fff}
+  .usp .section-sub{color:#bdc4cc}
+  .usp-grid{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+  .usp-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:var(--radius-lg);
+    padding:20px;
+  }
+  .usp-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .usp-no{
+    font-size:11px;font-weight:800;
+    color:var(--accent-light);letter-spacing:.08em;
+  }
+  .usp-icon{
+    width:42px;height:42px;border-radius:8px;
+    background:rgba(255,77,77,.10);
+    border:1px solid rgba(255,77,77,.25);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--accent-light);flex-shrink:0;
+  }
+  .usp-card h3{font-size:17px;font-weight:800;margin-bottom:6px}
+  .usp-card p{font-size:13px;color:#bdc4cc;line-height:1.85}
+  .usp-card p b{color:#fff}
+
+  /* ============================================
+     INLINE CTA
+  ============================================ */
+  .inline-cta{background:var(--gray-1);padding:36px 0}
+  .inline-cta-inner{
+    background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius-lg);padding:22px 18px;
+    box-shadow:var(--shadow-md);text-align:center;
+    border-top:3px solid var(--accent);
+  }
+  .inline-cta-inner .lead{font-size:15px;font-weight:800;margin-bottom:6px}
+  .inline-cta-inner .sub{font-size:12px;color:var(--mute);margin-bottom:14px;line-height:1.7}
+
+  /* ============================================
+     PRICING
+  ============================================ */
+  .pricing{background:var(--gray-1)}
+  .price-table{
+    margin-top:20px;background:#fff;
+    border-radius:var(--radius-lg);overflow:hidden;
+    box-shadow:var(--shadow-sm);border:1px solid var(--line);
+  }
+  .price-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 18px;border-bottom:1px solid var(--line-2);font-size:14px;
+  }
+  .price-row:last-child{border-bottom:0}
+  .price-row .item{font-weight:600}
+  .price-row .item .desc{
+    display:block;font-size:11px;color:var(--mute);font-weight:400;margin-top:2px;
+  }
+  .price-row .amount{
+    font-size:18px;font-weight:900;color:var(--accent);
+    white-space:nowrap;letter-spacing:.005em;
+  }
+  .price-row .amount small{font-size:11px;font-weight:700}
+  .price-disclaimer{
+    margin-top:14px;background:#fff;
+    border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:6px;padding:14px 16px;
+    font-size:12px;line-height:1.85;color:var(--ink-2);
+  }
+  .price-disclaimer b{color:var(--ink)}
+
+  /* ============================================
+     ACHIEVEMENT
+  ============================================ */
+  .achv{background:var(--ink);color:#fff}
+  .achv .eyebrow{color:var(--accent-light)}
+  .achv h2.section-title{color:#fff}
+  .achv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:24px}
+  .achv-stat{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:var(--radius);padding:18px 10px;text-align:center;
+  }
+  .achv-stat .num{
+    font-size:26px;font-weight:900;color:var(--accent-light);
+    line-height:1;letter-spacing:.005em;
+  }
+  .achv-stat .num small{font-size:13px;font-weight:700}
+  .achv-stat .label{margin-top:6px;font-size:11px;color:#bdc4cc;font-weight:500}
+
+  .reviews{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+  .review{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:var(--radius);padding:18px;
+  }
+  .review-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .review-avatar{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:800;font-size:14px;flex-shrink:0;
+  }
+  .review-meta{flex:1;min-width:0}
+  .review-meta .name{font-size:13px;font-weight:700}
+  .review-meta .area{font-size:11px;color:#9ca3af}
+  .review-stars{color:var(--gold);font-size:13px;letter-spacing:1px;margin-bottom:6px}
+  .review-text{font-size:13px;color:#cdd2db;line-height:1.85}
+
+  /* ============================================
+     STAFF
+  ============================================ */
+  .staff{background:#fff}
+  .staff-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+  .staff-card{
+    border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:0;overflow:hidden;background:#fff;box-shadow:var(--shadow-sm);
+  }
+  .staff-photo-wrap{aspect-ratio:1/1;overflow:hidden;background:#f4f4f4}
+  .staff-photo-wrap img{width:100%;height:100%;object-fit:cover}
+  .staff-info{padding:14px;text-align:center}
+  .staff-info .name{font-size:14px;font-weight:800;margin-bottom:2px}
+  .staff-info .role{font-size:11px;color:var(--mute);margin-bottom:8px}
+  .staff-info .quote{
+    font-size:11.5px;line-height:1.75;color:var(--ink-2);
+    text-align:left;border-top:1px solid var(--line-2);
+    padding-top:10px;margin-top:6px;
+  }
+
+  /* ============================================
+     FLOW
+  ============================================ */
+  .flow{background:var(--gray-1)}
+  .flow-list{margin-top:24px;position:relative}
+  .flow-list::before{
+    content:"";position:absolute;left:21px;top:14px;bottom:14px;width:2px;
+    background:var(--accent);
+    opacity:.3;
+  }
+  .flow-item{display:flex;gap:16px;padding:8px 0 24px;position:relative}
+  .flow-item:last-child{padding-bottom:0}
+  .flow-num{
+    width:44px;height:44px;border-radius:50%;
+    background:#fff;border:2px solid var(--accent);color:var(--accent);
+    font-size:16px;font-weight:900;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;z-index:1;
+  }
+  .flow-content{flex:1;padding-top:8px}
+  .flow-content b{display:block;font-size:15px;font-weight:800;margin-bottom:4px}
+  .flow-content p{font-size:13px;color:var(--ink-2);line-height:1.85}
+
+  /* ============================================
+     FAQ
+  ============================================ */
+  .faq{background:#fff}
+  .faq-list{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+  .faq-item{
+    background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .faq-item.open{border-color:var(--ink)}
+  .faq-q{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:16px 18px;width:100%;text-align:left;
+    font-size:14px;font-weight:700;line-height:1.5;
+  }
+  .faq-q::before{
+    content:"Q";width:22px;height:22px;border-radius:50%;
+    background:var(--ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:800;flex-shrink:0;margin-top:1px;
+  }
+  .faq-q-text{flex:1}
+  .faq-toggle{
+    width:22px;height:22px;border-radius:50%;
+    background:var(--gray-1);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;margin-top:1px;
+    transition:background .2s, transform .2s;color:var(--ink-2);
+  }
+  .faq-item.open .faq-toggle{
+    background:var(--accent);color:#fff;transform:rotate(45deg);
+  }
+  .faq-a{
+    max-height:0;overflow:hidden;
+    transition:max-height .3s ease, padding .3s ease;
+    padding:0 18px 0 52px;
+    font-size:13px;line-height:1.85;color:var(--ink-2);
+  }
+  .faq-item.open .faq-a{padding:0 18px 18px 52px;max-height:600px}
+
+  /* ============================================
+     FINAL CTA
+  ============================================ */
+  .final{
+    background:var(--ink);
+    color:#fff;text-align:center;padding:56px 0;
+  }
+  .final h2{font-size:24px;font-weight:900;line-height:1.5;margin-bottom:10px}
+  .final h2 .accent{color:var(--accent-light)}
+  .final-sub{font-size:13px;color:#cdd2db;margin-bottom:24px;line-height:1.8}
+  .final .badge-soft{
+    display:inline-block;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    padding:4px 12px;border-radius:4px;
+    font-size:11px;font-weight:700;color:#fff;margin-bottom:14px;
+    letter-spacing:.04em;
+  }
+
+  /* ============================================
+     FOOTER
+  ============================================ */
+  footer{
+    background:#0a0a0a;color:#7e8794;
+    padding:32px 0 28px;font-size:11px;line-height:1.9;
+  }
+  footer .biz-name{
+    color:#fff;font-weight:800;font-size:14px;
+    margin-bottom:10px;letter-spacing:.02em;
+  }
+  footer a{color:#a8b0bc;text-decoration:underline}
+  footer .links{margin-top:14px}
+  footer .copyright{margin-top:14px;color:#525a66;font-size:10px}
+
+  /* ============================================
+     STICKY CTA
+  ============================================ */
+  .sticky{
+    position:fixed;left:0;right:0;bottom:0;z-index:100;
+    background:#fff;
+    border-top:1px solid var(--line);
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    display:flex;gap:8px;
+    box-shadow:0 -4px 16px rgba(0,0,0,.06);
+  }
+  .sticky-tel,.sticky-line{
+    flex:1;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    padding:13px 8px;border-radius:6px;
+    font-weight:800;font-size:13px;
+    transition:background .15s ease;
+  }
+  .sticky-tel{
+    background:var(--accent);color:#fff;flex:1.5;
+  }
+  .sticky-tel:active{background:var(--accent-dark)}
+  .sticky-line{
+    background:var(--green);color:#fff;
+  }
+  .sticky-line:active{background:var(--green-deep)}
+
+  /* ============================================
+     ANIMATIONS
+  ============================================ */
+  .fade-up{
+    opacity:0;transform:translateY(12px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .fade-up.in{opacity:1;transform:translateY(0)}
+
+  /* ============================================
+     RESPONSIVE
+  ============================================ */
+  @media(min-width:480px){
+    .hero h1{font-size:34px}
+    h2.section-title{font-size:26px}
+  }
+  @media(min-width:560px){
+    .container{padding:0 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#" class="brand">
+      <span class="brand-name">生活サービス365</span>
+      <img src="images/chara01.webp" alt="" class="brand-mascot" aria-hidden="true">
+    </a>
+    <button class="hamburger" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Drawer overlay -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- Drawer menu -->
+<nav class="drawer" id="drawer" aria-label="メインメニュー" aria-hidden="true">
+  <div class="drawer-head">
+    <div class="brand">
+      <span class="brand-name">生活サービス365</span>
+      <img src="images/chara01.webp" alt="" class="brand-mascot" aria-hidden="true">
+    </div>
+    <button class="drawer-close" id="menuClose" aria-label="メニューを閉じる">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="6" y1="6" x2="18" y2="18"/>
+        <line x1="6" y1="18" x2="18" y2="6"/>
+      </svg>
+    </button>
+  </div>
+  <ul class="drawer-menu">
+    <li><a href="#services">サービス一覧</a></li>
+    <li><a href="#anxiety">安心のお約束</a></li>
+    <li><a href="#pricing">料金</a></li>
+    <li><a href="#achv">実績・口コミ</a></li>
+    <li><a href="#staff">スタッフ紹介</a></li>
+    <li><a href="#faq">よくある質問</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <a class="drawer-cta" href="tel:0120000000">📞 今すぐ電話する</a>
+  <p class="drawer-sub">通話料無料／24時間365日対応</p>
+</nav>
+
+<!-- ===== STATUS BAR ===== -->
+<div class="status-bar">
+  <span class="dot"></span>
+  神戸・兵庫｜ただいま受付中（24時間365日）
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-bg">
+    <img
+      src="images/heroImage.webp"
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+    >
+  </div>
+
+  <div class="container">
+    <span class="hero-meta">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      神戸・兵庫 全域対応
+      <span class="sep">/</span>
+      累計5,000件超の対応実績
+    </span>
+
+    <h1>
+      事故・故障の現場へ、<br>
+      最短<span class="hl"><span class="num">15</span>分</span>で<br>
+      駆けつけます。
+    </h1>
+
+    <p class="hero-sub">
+      神戸・兵庫の<b>専門スタッフ</b>が、<br>
+      24時間365日、現場に向かいます。
+    </p>
+
+    <div class="price-callout">
+      <div class="mascot">
+        <img src="images/chara01.webp" alt="" aria-hidden="true">
+      </div>
+      <div class="speech-bubble">
+        <b>料金、はっきり伝えます！</b>
+        現場で見積→納得後／追加料金は<span class="hi">一切なし</span>
+      </div>
+    </div>
+
+    <div class="price-box">
+      <span class="pb-ribbon">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6z"/></svg>
+        追加料金 一切なし
+      </span>
+      <span class="pb-label">基本作業料</span>
+      <div class="pb-amount">
+        <span class="pb-num">980</span>
+        <span class="pb-yen">円</span>
+        <span class="pb-from">〜</span>
+      </div>
+      <span class="pb-tax">（税込）</span>
+      <p class="pb-note">
+        ※距離・作業内容により金額は変動します。<b>作業前に必ず書面でお見積り</b>し、ご納得後に作業を開始します。追加料金は一切いただきません。
+      </p>
+    </div>
+
+    <a class="cta-tel" href="tel:0120000000">
+      <span class="top-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        今すぐ電話で状況確認（1分でOK）
+      </span>
+      <span class="number">0120-000-000</span>
+      <p class="footnote">
+        通話料無料／その場で<b>対応可否・概算料金</b>がわかります
+      </p>
+    </a>
+
+    <a class="cta-line" href="#contact">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 5.69 2 10.24c0 2.92 1.84 5.5 4.66 7.04-.2.74-.74 2.78-.84 3.21-.13.54.2.53.42.39.17-.11 2.71-1.84 3.81-2.59.65.1 1.32.15 1.95.15 5.52 0 10-3.69 10-8.24S17.52 2 12 2z"/>
+      </svg>
+      LINEで写真を送る（電話できない方へ）
+    </a>
+
+    <p class="hero-finalnote">
+      ※まずは状況だけでもOK／押し売り一切ありません<br>
+      ※料金が合わなければキャンセル可能（キャンセル料0円）
+    </p>
+  </div>
+</header>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="heading">
+      <span class="eyebrow">SERVICES</span>
+      <h2>対応サービス<span class="accent">一覧</span></h2>
+      <p class="lead">どの状況にも、24時間ワンストップで対応します。</p>
+    </div>
+
+    <div class="service-grid">
+
+      <a class="service-card" href="tel:0120000000">
+        <div class="sc-photo">
+          <img src="images/tire.webp" alt="パンク修理" loading="lazy">
+          <span class="badge-247">24h対応</span>
+        </div>
+        <div class="sc-body">
+          <div class="sc-title">
+            <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></span>
+            パンク修理
+          </div>
+          <p class="sc-desc">その場での修理または<br>スペアタイヤへの交換</p>
+          <div class="sc-price">
+            <span class="label">基本作業料</span>
+            <span class="amount">980<small>円〜</small></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="service-card" href="tel:0120000000">
+        <div class="sc-photo">
+          <img src="images/battery.webp" alt="バッテリー上がり" loading="lazy">
+          <span class="badge-247">24h対応</span>
+        </div>
+        <div class="sc-body">
+          <div class="sc-title">
+            <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="2" y="7" width="16" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/></svg></span>
+            バッテリー上がり
+          </div>
+          <p class="sc-desc">ジャンピングスタートで<br>エンジン再始動</p>
+          <div class="sc-price">
+            <span class="label">基本作業料</span>
+            <span class="amount">980<small>円〜</small></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="service-card" href="tel:0120000000">
+        <div class="sc-photo">
+          <img src="images/wrecker.webp" alt="レッカー移動" loading="lazy">
+          <span class="badge-247">24h対応</span>
+        </div>
+        <div class="sc-body">
+          <div class="sc-title">
+            <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M14 16H9m10 0h2v-3.34a4 4 0 0 0-1.17-2.83l-3.66-3.66A4 4 0 0 0 13.34 5H8M3 11h6M5 16h0M16 19a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM10 19a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg></span>
+            レッカー移動
+          </div>
+          <p class="sc-desc">事故や故障時の<br>車両搬送</p>
+          <div class="sc-price">
+            <span class="label">基本作業料</span>
+            <span class="amount">980<small>円〜</small></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="service-card" href="tel:0120000000">
+        <div class="sc-photo">
+          <img src="images/inlock.webp" alt="インロック解除" loading="lazy">
+          <span class="badge-247">24h対応</span>
+        </div>
+        <div class="sc-body">
+          <div class="sc-title">
+            <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            インロック解除
+          </div>
+          <p class="sc-desc">鍵の閉じ込みにも<br>迅速対応</p>
+          <div class="sc-price">
+            <span class="label">基本作業料</span>
+            <span class="amount">980<small>円〜</small></span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANXIETY ===== -->
+<section class="anxiety" id="anxiety">
+  <div class="container">
+    <span class="eyebrow">最初にお読みください</span>
+    <h2 class="section-title">
+      <span class="accent">「ぼったくられない？」</span><br>
+      その不安、先に消します。
+    </h2>
+    <p class="section-sub">
+      緊急時のロードサービスでお客様が一番不安なのは"金額の不透明さ"。<br>
+      私たちは、それを根本から解決する4つのお約束をしています。
+    </p>
+
+    <div class="promise-card">
+      <div class="promise-list">
+        <div class="promise-item">
+          <div class="promise-num">01</div>
+          <div class="promise-text">
+            <b>電話の段階で、概算をお伝えします</b>
+            <p>「現場見ないと分からない」では電話できません。状況をお伝えいただければ、<span class="hi">電話口でおおよその料金を先にお伝え</span>します。</p>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="promise-num">02</div>
+          <div class="promise-text">
+            <b>現場で書面のお見積りをお出しします</b>
+            <p>到着後、作業前に必ず<span class="hi">書面でお見積り</span>。ご納得いただけない場合、<span class="hi">キャンセル料0円</span>でお断りいただけます。</p>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="promise-num">03</div>
+          <div class="promise-text">
+            <b>追加料金は、一切ありません</b>
+            <p>夜間・休日・距離料金など、追加が発生する条件もすべて<span class="hi">事前にご提示</span>。"気づいたら3万円"は絶対にありません。</p>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="promise-num">04</div>
+          <div class="promise-text">
+            <b>保険のロードサービス確認も無料</b>
+            <p>ご加入の自動車保険で<span class="hi">自己負担0円</span>になるケースも。電話で一緒に確認します。「保険使えるか分からない」だけのご相談もOK。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMPATHY ===== -->
+<section class="empathy">
+  <div class="container">
+    <span class="eyebrow">こんな状況ですよね</span>
+    <h2 class="section-title">今、<span class="accent">これ</span>で困っていませんか？</h2>
+
+    <div class="empathy-list">
+      <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>事故で車が動かない、まず誰に頼めばいいか分からない</div>
+      <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>バッテリー上がり・パンク・ガス欠で立ち往生している</div>
+      <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>JAF・保険のロードを呼んだが、到着まで時間がかかる</div>
+      <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>料金が分からなくて、業者に電話するのが怖い</div>
+      <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>深夜・早朝で対応してくれる業者が見つからない</div>
+      <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>レッカー後の修理工場手配まで、一括で頼みたい</div>
+    </div>
+
+    <p class="empathy-msg">▼ 一つでも当てはまる方、お電話で一緒に解決します</p>
+  </div>
+</section>
+
+<!-- ===== USP ===== -->
+<section class="usp">
+  <div class="container">
+    <span class="eyebrow">WHY CHOOSE US</span>
+    <h2 class="section-title">神戸・兵庫で<br>選ばれる4つの理由</h2>
+    <p class="section-sub">スピードだけでも、価格だけでもない。<br>"緊急時に頼れる"理由を、4つの軸で。</p>
+
+    <div class="usp-grid">
+      <div class="usp-card">
+        <div class="usp-head">
+          <div class="usp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="usp-no">POINT 01</div><h3>最短15分・市内即出動</h3></div>
+        </div>
+        <p>市内拠点に複数台のレッカー車を分散配置。<b>電話受付から90秒以内に出動指示</b>を出します。神戸市内 平均15分／兵庫県内 平均25分で到着しています（自社実績）。</p>
+      </div>
+
+      <div class="usp-card">
+        <div class="usp-head">
+          <div class="usp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <div><div class="usp-no">POINT 02</div><h3>ワンストップ対応</h3></div>
+        </div>
+        <p>レッカー → 修理工場手配 → 保険会社連絡まで、<b>すべて自社で完結</b>。お客様は電話一本でOK。修理工場を別で探す手間も、別途連絡する手間もありません。</p>
+      </div>
+
+      <div class="usp-card">
+        <div class="usp-head">
+          <div class="usp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.68.94 6.36 2.64"/></svg></div>
+          <div><div class="usp-no">POINT 03</div><h3>明朗会計・追加料金なし</h3></div>
+        </div>
+        <p>現場で書面のお見積りをご提示。<b>ご納得後にしか作業しません</b>。「気づいたら高額請求」は絶対にありません。料金が合わなければ、断っていただいて構いません。</p>
+      </div>
+
+      <div class="usp-card">
+        <div class="usp-head">
+          <div class="usp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="usp-no">POINT 04</div><h3>神戸・兵庫の地域密着</h3></div>
+        </div>
+        <p>地元の道を熟知したスタッフが対応。<b>狭い住宅街・山道・高速道路</b>もスムーズに到着。地域の保険代理店・修理工場との連携網があるからこその対応速度です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INLINE CTA ===== -->
+<section class="inline-cta">
+  <div class="container">
+    <div class="inline-cta-inner">
+      <p class="lead">迷ったら、まず電話で大丈夫です</p>
+      <p class="sub">「頼むかは決めてない」「料金だけ知りたい」もOK。<br>1分で対応可否がわかります。押し売り一切なし。</p>
+      <a class="cta-tel" href="tel:0120000000">
+        <span class="top-label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          今すぐ電話で状況確認
+        </span>
+        <span class="number">0120-000-000</span>
+        <p class="footnote">通話料無料／対応可否・概算料金がわかります</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <span class="eyebrow">PRICING</span>
+    <h2 class="section-title">料金の<span class="accent">内訳</span>をすべて公開</h2>
+    <p class="section-sub">"〜"の正体が見えないから不安になる。<br>私たちは、料金の内訳をすべてオープンにしています。</p>
+
+    <div class="price-table">
+      <div class="price-row"><div class="item">基本作業料（出動）<span class="desc">現場到着までの基本費用</span></div><div class="amount">980<small>円〜</small></div></div>
+      <div class="price-row"><div class="item">レッカー牽引<span class="desc">1kmあたり</span></div><div class="amount">500<small>円〜</small></div></div>
+      <div class="price-row"><div class="item">バッテリー上がり対応<span class="desc">ジャンピングスタート</span></div><div class="amount">8,000<small>円〜</small></div></div>
+      <div class="price-row"><div class="item">パンク・タイヤ交換<span class="desc">スペアタイヤ交換／応急修理</span></div><div class="amount">5,000<small>円〜</small></div></div>
+      <div class="price-row"><div class="item">ガス欠対応<span class="desc">ガソリン代別</span></div><div class="amount">5,000<small>円〜</small></div></div>
+      <div class="price-row"><div class="item">キー閉じ込み開錠<span class="desc">インロック対応</span></div><div class="amount">8,000<small>円〜</small></div></div>
+      <div class="price-row"><div class="item">夜間料金<span class="desc">22:00〜翌6:00 加算</span></div><div class="amount">+3,000<small>円</small></div></div>
+    </div>
+
+    <div class="price-disclaimer">
+      <b>「980円〜」について</b><br>
+      表記の「980円〜」は基本作業料（出動）の最低価格です。実際のご請求金額は、作業内容・距離・時間帯により変動します。<br>
+      <b>必ず作業前に書面でお見積りをお出しし、ご納得いただいてから作業を開始</b>します。お見積り後のキャンセルは無料です。<br><br>
+      <b>自動車保険のロードサービスをご利用の場合、お客様のご負担が0円になるケースもあります。</b>電話で一緒に確認しますので、保険会社名をお伝えください。
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACHIEVEMENT ===== -->
+<section class="achv" id="achv">
+  <div class="container">
+    <span class="eyebrow">TRACK RECORD</span>
+    <h2 class="section-title">数字で見る、<br>私たちの実績</h2>
+
+    <div class="achv-stats">
+      <div class="achv-stat"><div class="num">5,000<small>件+</small></div><div class="label">累計対応件数</div></div>
+      <div class="achv-stat"><div class="num">15<small>分</small></div><div class="label">市内 平均到着</div></div>
+      <div class="achv-stat"><div class="num">4.7<small>/5.0</small></div><div class="label">お客様評価</div></div>
+    </div>
+
+    <div class="reviews">
+      <div class="review">
+        <div class="review-head"><div class="review-avatar">M</div><div class="review-meta"><div class="name">M.K 様</div><div class="area">神戸市中央区／40代男性</div></div></div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">深夜に高速で故障し、半分パニック状態でした。電話口で落ち着かせてくれて、20分ほどで到着。料金も電話で言われた通りで、明細書もきちんと出してくれて安心しました。</div>
+      </div>
+      <div class="review">
+        <div class="review-head"><div class="review-avatar">S</div><div class="review-meta"><div class="name">S.T 様</div><div class="area">西宮市／30代女性</div></div></div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">他社は「現場見ないと分からない」だったのに、こちらは電話で概算をくれた。実際の請求もぴったりで、追加もありませんでした。次もここに頼みます。</div>
+      </div>
+      <div class="review">
+        <div class="review-head"><div class="review-avatar">Y</div><div class="review-meta"><div class="name">Y.N 様</div><div class="area">姫路市／50代男性</div></div></div>
+        <div class="review-stars">★★★★☆</div>
+        <div class="review-text">保険のロードサービスより早く来てくれた。保険を使うか迷っていたら、自己負担0円になるか電話で一緒に確認してくれて助かりました。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STAFF ===== -->
+<section class="staff" id="staff">
+  <div class="container">
+    <span class="eyebrow">OUR TEAM</span>
+    <h2 class="section-title">対応するのは、<br>顔の見える地元スタッフ</h2>
+    <p class="section-sub">「誰が来るのか分からない」も、不安の一つ。<br>私たちは、対応するスタッフを公開しています。</p>
+
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-photo-wrap" style="background:#f7f1e6"><img src="https://api.dicebear.com/9.x/notionists/svg?seed=tanaka-kobe&backgroundColor=f7f1e6&radius=0" alt="代表 田中（イメージ）" loading="lazy"></div>
+        <div class="staff-info">
+          <div class="name">田中（代表）</div>
+          <div class="role">対応歴12年／整備士</div>
+          <div class="quote">「お客様が安心できる対応を最優先に。料金で揉めない仕事をします」</div>
+        </div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo-wrap" style="background:#f7f1e6"><img src="https://api.dicebear.com/9.x/notionists/svg?seed=sato-hyogo&backgroundColor=f7f1e6&radius=0" alt="スタッフ 佐藤（イメージ）" loading="lazy"></div>
+        <div class="staff-info">
+          <div class="name">佐藤</div>
+          <div class="role">対応歴8年／保険対応専門</div>
+          <div class="quote">「保険を使うか迷ったら、まず聞いてください。一番得な選択をご提案します」</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLOW ===== -->
+<section class="flow">
+  <div class="container">
+    <span class="eyebrow">HOW IT WORKS</span>
+    <h2 class="section-title">電話から解決まで、<br><span class="accent">4ステップ</span></h2>
+
+    <div class="flow-list">
+      <div class="flow-item"><div class="flow-num">1</div><div class="flow-content"><b>お電話／LINE</b><p>現在地・状況をお伝えください。場所が分からなくても、電話で一緒に確認します。LINEなら写真1枚でもOK。</p></div></div>
+      <div class="flow-item"><div class="flow-num">2</div><div class="flow-content"><b>概算料金のご提示</b><p>電話の段階で、おおよその料金をお伝えします。保険利用の可否もここで確認可能です。</p></div></div>
+      <div class="flow-item"><div class="flow-num">3</div><div class="flow-content"><b>現場到着＆書面お見積り</b><p>最短15分で到着。書面でお見積りをお出しし、ご納得いただいてから作業を開始します。</p></div></div>
+      <div class="flow-item"><div class="flow-num">4</div><div class="flow-content"><b>作業完了・お支払い</b><p>現金／クレジットカード／保険直接精算 対応。明細書を必ずお渡しします。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="section-title">よくあるご質問</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">本当に980円で済みますか？</span><span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">980円は基本作業料の最低価格です。実際は作業内容・距離・時間帯により変わります。ただし、必ず作業前に書面でお見積りをお出しし、ご納得後にしか作業しません。「気づいたら高額請求」は絶対にありませんのでご安心ください。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">支払い方法は？財布が手元にありません</span><span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">現金／クレジットカード／QR決済／保険会社直接精算 に対応しています。手元に財布がない場合も、後日のお振込み等で対応可能です。お電話でご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">保険のロードサービスを使った方が得ですか？</span><span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">ケースによります。電話で一緒に確認しますので、ご加入の保険会社名をお伝えください。自己負担0円になる場合と、当社直接の方が早い・安いケースの両方があります。お客様にとって一番得な方法をご提案します。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">深夜や雨天でも来てくれますか？</span><span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">24時間365日対応しています。深夜・早朝・雨天・台風時もスタッフが常駐。夜間（22:00〜翌6:00）は+3,000円の追加料金がかかりますが、これも事前にご提示します。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">見積もりだけ取ってキャンセルしてもいい？</span><span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">もちろんOKです。キャンセル料は0円です。料金にご納得いただけない場合は、お断りいただいて構いません。押し売りは一切しません。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">対応エリアはどこまで？</span><span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">神戸市全域・西宮・芦屋・尼崎・宝塚・明石・加古川・姫路など兵庫県内全域に対応。県境付近の場合もお気軽にお電話ください。出動可否を即お答えします。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">電話するのが不安です。LINEだけで頼めますか？</span><span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">LINEでも対応可能です。状況の写真と現在地を送っていただければ、こちらから連絡します。声を出しづらい状況（事故直後・体調不良など）の方も、まずLINEからどうぞ。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final" id="contact">
+  <div class="container">
+    <span class="badge-soft">神戸・兵庫｜24時間受付中</span>
+    <h2>迷ったら、<br><span class="accent">まず電話</span>で大丈夫です</h2>
+    <p class="final-sub">「頼むかは決めてない」「料金だけ知りたい」もOK。<br>押し売り一切なし。料金が合わなければ断ってOKです。</p>
+
+    <a class="cta-tel" href="tel:0120000000">
+      <span class="top-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        今すぐ電話で状況確認（1分でOK）
+      </span>
+      <span class="number">0120-000-000</span>
+      <p class="footnote">通話料無料／その場で対応可否・概算料金がわかります</p>
+    </a>
+
+    <a class="cta-line" href="https://line.me/" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.69 2 10.24c0 2.92 1.84 5.5 4.66 7.04-.2.74-.74 2.78-.84 3.21-.13.54.2.53.42.39.17-.11 2.71-1.84 3.81-2.59.65.1 1.32.15 1.95.15 5.52 0 10-3.69 10-8.24S17.52 2 12 2z"/></svg>
+      LINEで写真を送る（24時間受付）
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="biz-name">神戸・兵庫ロードサービス</div>
+    所在地：兵庫県神戸市〇〇区〇〇<br>
+    電話：0120-000-000（24時間365日）<br>
+    事業内容：ロードサービス／レッカー／自動車修理仲介<br>
+    許可：古物商許可 第〇〇号／自動車運送事業
+    <div class="links"><a href="#">特定商取引法</a>　|　<a href="#">プライバシーポリシー</a>　|　<a href="#">利用規約</a></div>
+    <div class="copyright">© 2026 神戸・兵庫ロードサービス</div>
+  </div>
+</footer>
+
+<!-- ===== STICKY ===== -->
+<div class="sticky">
+  <a class="sticky-tel" href="tel:0120000000">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    今すぐ電話（無料）
+  </a>
+  <a class="sticky-line" href="#contact">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.69 2 10.24c0 2.92 1.84 5.5 4.66 7.04-.2.74-.74 2.78-.84 3.21-.13.54.2.53.42.39.17-.11 2.71-1.84 3.81-2.59.65.1 1.32.15 1.95.15 5.52 0 10-3.69 10-8.24S17.52 2 12 2z"/></svg>
+    LINE
+  </a>
+</div>
+
+<script>
+  // Drawer menu
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var close = document.getElementById('menuClose');
+    var drawer = document.getElementById('drawer');
+    var overlay = document.getElementById('drawerOverlay');
+    function open(){
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded','true');
+      drawer.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function shut(){
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      drawer.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+    toggle.addEventListener('click', open);
+    close.addEventListener('click', shut);
+    overlay.addEventListener('click', shut);
+    drawer.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', shut);
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') shut();
+    });
+  })();
+
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      item.classList.toggle('open');
+    });
+  });
+
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12});
+    document.querySelectorAll('section .container > *').forEach(el=>{
+      el.classList.add('fade-up');
+      io.observe(el);
+    });
+  }
+</script>
+
+</body>
+</html>
