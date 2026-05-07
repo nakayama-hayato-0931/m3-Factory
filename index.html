@@ -294,7 +294,7 @@
     background:#fff;
     color:var(--ink);
     border-radius:8px;
-    padding:22px 18px 14px;
+    padding:24px 16px 18px;
     border:2px solid var(--accent);
     box-shadow:0 12px 30px rgba(0,0,0,.32);
     text-align:center;
@@ -312,50 +312,53 @@
   .price-box .pb-ribbon svg{flex-shrink:0}
   .price-box .pb-label{
     display:inline-block;
-    font-size:11.5px;font-weight:700;
+    font-size:12px;font-weight:700;
     color:#fff;background:var(--ink);
-    padding:4px 12px;border-radius:3px;
+    padding:4px 14px;border-radius:3px;
     letter-spacing:.06em;
-    margin-bottom:6px;
+    margin-bottom:8px;
   }
   .price-box .pb-amount{
     display:flex;align-items:baseline;justify-content:center;gap:2px;
     line-height:1;margin-bottom:4px;
+    position:relative;
   }
+  .price-box .pb-amount::before,
+  .price-box .pb-amount::after{
+    content:"★";
+    position:absolute;
+    top:50%;transform:translateY(-50%);
+    color:var(--accent);
+    font-size:18px;
+    opacity:.85;
+  }
+  .price-box .pb-amount::before{left:6px}
+  .price-box .pb-amount::after{right:6px}
   .price-box .pb-amount .pb-num{
     position:relative;
-    font-size:64px;font-weight:900;color:var(--ink);
-    letter-spacing:-.025em;line-height:.95;
+    font-size:80px;font-weight:900;color:var(--ink);
+    letter-spacing:-.03em;line-height:.95;
     z-index:1;
   }
   .price-box .pb-amount .pb-num::after{
     content:"";position:absolute;
-    left:-3px;right:-3px;bottom:5px;
-    height:16px;background:#ffd84d;
+    left:-4px;right:-4px;bottom:6px;
+    height:22px;background:#ffe600;
     z-index:-1;border-radius:2px;
   }
   .price-box .pb-amount .pb-yen{
-    font-size:26px;font-weight:900;color:var(--ink);
+    font-size:30px;font-weight:900;color:var(--ink);
     letter-spacing:-.005em;
   }
   .price-box .pb-amount .pb-from{
-    font-size:24px;font-weight:900;color:var(--accent);
+    font-size:28px;font-weight:900;color:var(--accent);
     margin-left:2px;
   }
   .price-box .pb-tax{
     display:inline-block;
-    font-size:11.5px;font-weight:700;
+    font-size:12px;font-weight:700;
     color:var(--mute);
-    margin-bottom:12px;
   }
-  .price-box .pb-note{
-    font-size:11px;color:var(--mute);
-    line-height:1.75;
-    border-top:1px solid var(--line);
-    padding-top:11px;
-    text-align:left;
-  }
-  .price-box .pb-note b{color:var(--ink);font-weight:700}
 
   /* Primary CTA — solid, professional */
   .cta-tel{
@@ -953,9 +956,6 @@
         <span class="pb-from">〜</span>
       </div>
       <span class="pb-tax">（税込）</span>
-      <p class="pb-note">
-        ※距離・作業内容により金額は変動します。<b>作業前に必ず書面でお見積り</b>し、ご納得後に作業を開始します。追加料金は一切いただきません。
-      </p>
     </div>
 
     <a class="cta-tel" href="tel:0120000000">
