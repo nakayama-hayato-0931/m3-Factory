@@ -591,13 +591,37 @@
   /* ============================================
      EMPATHY
   ============================================ */
-  .empathy{background:#fff}
+  .empathy{
+    position:relative;
+    background:
+      repeating-linear-gradient(135deg,
+        transparent 0 22px,
+        rgba(232,68,58,.04) 22px 23px),
+      linear-gradient(180deg, #fff8ec 0%, #fff3df 100%);
+    overflow:hidden;
+  }
+  .empathy::before{
+    content:"";
+    position:absolute;left:-30px;top:-30px;
+    width:120px;height:120px;
+    background:radial-gradient(circle, rgba(232,68,58,.10), transparent 70%);
+    pointer-events:none;
+  }
+  .empathy::after{
+    content:"";
+    position:absolute;right:-30px;bottom:-30px;
+    width:160px;height:160px;
+    background:radial-gradient(circle, rgba(245,158,11,.12), transparent 70%);
+    pointer-events:none;
+  }
+  .empathy .container{position:relative}
   .empathy-list{
-    background:var(--gray-1);
+    background:#fff;
     border-radius:var(--radius-lg);
     padding:8px 4px;
     margin-top:18px;
     border:1px solid var(--line);
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
   }
   .empathy-item{
     display:flex;align-items:flex-start;gap:12px;
