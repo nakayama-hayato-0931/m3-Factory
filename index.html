@@ -186,7 +186,7 @@
   }
 
   /* ============================================
-     HERO — clean, professional, photographic
+     HERO
   ============================================ */
   .hero{
     position:relative;
@@ -214,7 +214,6 @@
     );
   }
 
-  /* Top trust meta */
   .hero-meta{
     display:inline-flex;align-items:center;gap:8px;
     padding:7px 12px;
@@ -228,7 +227,6 @@
   .hero-meta svg{flex-shrink:0;color:var(--accent-light)}
   .hero-meta .sep{opacity:.35;margin:0 1px}
 
-  /* Headline */
   .hero h1{
     margin-top:0;
     font-size:28px;
@@ -254,7 +252,6 @@
   }
   .hero-sub b{color:#fff;font-weight:700}
 
-  /* Mascot + speech bubble callout */
   .price-callout{
     display:flex;align-items:center;gap:10px;
     margin:22px 0 6px;
@@ -288,7 +285,7 @@
     border-right:9px solid #fff;
   }
 
-  /* Price block — frameless cinematic typography */
+  /* Price block — frameless cinematic typography (uploaded file style) */
   .price-box{
     position:relative;
     margin:20px 0 14px;
@@ -361,7 +358,29 @@
     letter-spacing:.04em;
   }
 
-  /* Primary CTA — solid, professional + attention animation */
+  /* D style: price underline expand */
+  @keyframes priceLineExpand{
+    from{width:0;opacity:0}
+    to{width:100%;opacity:1}
+  }
+  @keyframes priceSlideUp{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  .price-box .pb-underline{
+    display:block;
+    height:3px;
+    width:0;
+    background:linear-gradient(90deg,transparent,#c8161d 20%,#ff4d4d 50%,#c8161d 80%,transparent);
+    border-radius:2px;
+    margin:4px auto 0;
+    animation:priceLineExpand .9s .5s ease forwards;
+  }
+  .price-box .pb-ribbon{
+    animation:priceSlideUp .5s .7s ease both;
+    opacity:0;
+  }
+
   @keyframes ctaPulse{
     0%,100%{
       box-shadow:0 4px 14px rgba(200,22,29,.30), 0 0 0 0 rgba(200,22,29,.55);
@@ -430,7 +449,6 @@
     color:rgba(255,255,255,.92);
     line-height:1.6;
   }
-
 
   .hero-finalnote{
     margin-top:14px;
@@ -558,38 +576,17 @@
   h2.section-title .accent{color:var(--accent)}
   .section-sub{color:var(--ink-2);font-size:13px;line-height:1.85}
 
-  /* ============================================
-     ANXIETY
-  ============================================ */
-  .anxiety{background:var(--gray-1)}
-  .promise-card{
-    margin-top:24px;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:var(--radius-lg);
-    padding:24px 22px;
-    box-shadow:var(--shadow-md);
-    border-top:3px solid var(--accent);
+  /* title-line accent */
+  .title-line{
+    display:block;
+    height:2px;width:36px;
+    background:var(--accent);
+    border-radius:2px;
+    margin-bottom:16px;
   }
-  .promise-list{display:flex;flex-direction:column;gap:14px;margin-top:6px}
-  .promise-item{
-    display:flex;gap:14px;align-items:flex-start;
-    padding-bottom:14px;border-bottom:1px solid var(--line-2);
-  }
-  .promise-item:last-child{border-bottom:0;padding-bottom:0}
-  .promise-num{
-    width:28px;height:28px;border-radius:6px;
-    background:var(--ink);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-size:12px;font-weight:800;
-    flex-shrink:0;
-  }
-  .promise-text b{display:block;font-size:14px;font-weight:800;margin-bottom:2px}
-  .promise-text p{font-size:13px;color:var(--ink-2);line-height:1.75}
-  .promise-text .hi{color:var(--accent);font-weight:700}
 
   /* ============================================
-     EMPATHY
+     EMPATHY (uploaded file style — unchanged)
   ============================================ */
   .empathy{
     position:relative;
@@ -642,34 +639,70 @@
   }
 
   /* ============================================
-     USP
+     USP — accordion (white bg, click to expand)
   ============================================ */
-  .usp{background:var(--ink);color:#fff}
-  .usp .eyebrow{color:var(--accent-light)}
-  .usp h2.section-title{color:#fff}
-  .usp .section-sub{color:#bdc4cc}
-  .usp-grid{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+  .usp{background:var(--gray-1);}
+  .usp .eyebrow{color:var(--accent);}
+  .usp h2.section-title{color:var(--ink);}
+  .usp .section-sub{color:var(--ink-2);}
+
+  .usp-grid{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+
   .usp-card{
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.10);
+    background:#fff;
+    border:1px solid var(--line);
     border-radius:var(--radius-lg);
-    padding:20px;
+    border-left:3px solid var(--accent);
+    box-shadow:var(--shadow-sm);
+    overflow:hidden;
+    cursor:pointer;
+    transition:box-shadow .2s ease, border-left-color .2s ease;
   }
-  .usp-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-  .usp-no{
-    font-size:11px;font-weight:800;
-    color:var(--accent-light);letter-spacing:.08em;
+  .usp-card:hover{
+    box-shadow:var(--shadow-md);
+    border-left-color:var(--accent-light);
+  }
+  .usp-head{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 16px;
   }
   .usp-icon{
-    width:42px;height:42px;border-radius:8px;
-    background:rgba(255,77,77,.10);
-    border:1px solid rgba(255,77,77,.25);
+    width:34px;height:34px;border-radius:7px;
+    background:rgba(200,22,29,.08);
+    border:1px solid rgba(200,22,29,.18);
     display:flex;align-items:center;justify-content:center;
-    color:var(--accent-light);flex-shrink:0;
+    color:var(--accent);flex-shrink:0;
   }
-  .usp-card h3{font-size:17px;font-weight:800;margin-bottom:6px}
-  .usp-card p{font-size:13px;color:#bdc4cc;line-height:1.85}
-  .usp-card p b{color:#fff}
+  .usp-card h3{
+    font-size:14px;font-weight:800;
+    color:var(--ink);margin:0;flex:1;
+  }
+  .usp-no{
+    font-size:10px;font-weight:800;
+    color:var(--accent);letter-spacing:.06em;
+    background:rgba(200,22,29,.08);
+    padding:2px 8px;border-radius:10px;
+    flex-shrink:0;
+  }
+  .usp-chevron{
+    width:20px;height:20px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--mute);
+    transition:transform .25s ease;
+  }
+  .usp-card.open .usp-chevron{transform:rotate(180deg);}
+  .usp-card.open .usp-head{border-bottom:1px solid var(--line-2);}
+
+  .usp-body{
+    max-height:0;overflow:hidden;
+    transition:max-height .3s ease, padding .3s ease;
+    padding:0 16px 0 62px;
+    font-size:13px;color:var(--ink-2);line-height:1.85;
+  }
+  .usp-card.open .usp-body{
+    max-height:200px;
+    padding:12px 16px 16px 62px;
+  }
 
   /* ============================================
      INLINE CTA
@@ -685,7 +718,7 @@
   .inline-cta-inner .sub{font-size:12px;color:var(--mute);margin-bottom:14px;line-height:1.7}
 
   /* ============================================
-     PRICING
+     PRICING (uploaded file style — unchanged)
   ============================================ */
   .pricing{background:var(--gray-1)}
   .price-table{
@@ -725,42 +758,77 @@
   .price-disclaimer b{color:var(--ink)}
 
   /* ============================================
-     ACHIEVEMENT
+     ACHIEVEMENT — light bg + side-scroll reviews
   ============================================ */
-  .achv{background:var(--ink);color:#fff}
-  .achv .eyebrow{color:var(--accent-light)}
-  .achv h2.section-title{color:#fff}
-  .achv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:24px}
+  .achv{background:var(--gray-1);}
+  .achv .eyebrow{color:var(--accent);}
+  .achv h2.section-title{color:var(--ink);}
+
+  .achv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px;}
   .achv-stat{
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:var(--radius);padding:18px 10px;text-align:center;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    border-bottom:3px solid var(--accent);
+    padding:18px 10px;text-align:center;
+    box-shadow:var(--shadow-sm);
+    transition:transform .25s ease, box-shadow .25s ease;
   }
+  .achv-stat:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
   .achv-stat .num{
-    font-size:26px;font-weight:900;color:var(--accent-light);
+    font-size:26px;font-weight:900;color:var(--accent);
     line-height:1;letter-spacing:.005em;
   }
-  .achv-stat .num small{font-size:13px;font-weight:700}
-  .achv-stat .label{margin-top:6px;font-size:11px;color:#bdc4cc;font-weight:500}
+  .achv-stat .num small{font-size:13px;font-weight:700;color:var(--mute);}
+  .achv-stat .label{margin-top:6px;font-size:11px;color:var(--mute);font-weight:500;}
 
-  .reviews{margin-top:28px;display:flex;flex-direction:column;gap:12px}
-  .review{
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:var(--radius);padding:18px;
+  /* サイドスクロール口コミ */
+  .reviews-scroll-wrap{
+    margin-top:24px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:8px;
   }
-  .review-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .reviews-scroll-wrap::-webkit-scrollbar{display:none;}
+  .reviews{
+    display:flex;gap:14px;
+    width:max-content;
+  }
+  .review{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:18px;
+    border-top:3px solid var(--accent);
+    box-shadow:var(--shadow-sm);
+    width:280px;
+    flex-shrink:0;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .review:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+  .review-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
   .review-avatar{
     width:36px;height:36px;border-radius:50%;
     background:var(--accent);
     display:flex;align-items:center;justify-content:center;
     color:#fff;font-weight:800;font-size:14px;flex-shrink:0;
   }
-  .review-meta{flex:1;min-width:0}
-  .review-meta .name{font-size:13px;font-weight:700}
-  .review-meta .area{font-size:11px;color:#9ca3af}
-  .review-stars{color:var(--gold);font-size:13px;letter-spacing:1px;margin-bottom:6px}
-  .review-text{font-size:13px;color:#cdd2db;line-height:1.85}
+  .review-meta{flex:1;min-width:0;}
+  .review-meta .name{font-size:13px;font-weight:700;color:var(--ink);}
+  .review-meta .area{font-size:11px;color:var(--mute);}
+  .review-stars{color:var(--gold);font-size:13px;letter-spacing:1px;margin-bottom:6px;}
+  .review-text{font-size:13px;color:var(--ink-2);line-height:1.85;}
+
+  .scroll-hint{
+    text-align:center;margin-top:10px;
+    font-size:11px;color:var(--mute);
+    display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  .scroll-hint::before,.scroll-hint::after{
+    content:"";display:inline-block;
+    width:20px;height:1px;background:var(--line);
+  }
 
   /* ============================================
      STAFF
@@ -911,16 +979,50 @@
   }
 
   /* ============================================
-     ANIMATIONS
+     ANIMATIONS (スクロールトリガー・1回のみ)
   ============================================ */
-  .fade-up{
-    opacity:0;transform:translateY(12px);
+  @keyframes slideDown{
+    from{opacity:0;transform:translateY(-12px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @keyframes slideUp{
+    from{opacity:0;transform:translateY(14px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @keyframes slideLeft{
+    from{opacity:0;transform:translateX(-12px)}
+    to{opacity:1;transform:translateX(0)}
+  }
+  @keyframes fadeInAnim{
+    from{opacity:0}
+    to{opacity:1}
+  }
+
+  .anim-slide-up{
+    opacity:0;transform:translateY(14px);
+    transition:opacity .55s ease, transform .55s ease;
+  }
+  .anim-slide-up.in{opacity:1;transform:translateY(0)}
+
+  .anim-slide-left{
+    opacity:0;transform:translateX(-10px);
     transition:opacity .5s ease, transform .5s ease;
   }
-  .fade-up.in{opacity:1;transform:translateY(0)}
+  .anim-slide-left.in{opacity:1;transform:translateX(0)}
+
+  .anim-fade{
+    opacity:0;
+    transition:opacity .6s ease;
+  }
+  .anim-fade.in{opacity:1}
+
+  .delay-1{transition-delay:.08s}
+  .delay-2{transition-delay:.16s}
+  .delay-3{transition-delay:.24s}
+  .delay-4{transition-delay:.32s}
 
   /* ============================================
-     RESPONSIVE
+     RESPONSIVE — 768px+ (デスクトップ)
   ============================================ */
   @media(min-width:480px){
     .hero h1{font-size:34px}
@@ -928,6 +1030,97 @@
   }
   @media(min-width:560px){
     .container{padding:0 24px}
+  }
+
+  @media(min-width:768px){
+    body{font-size:16px}
+
+    .container{max-width:900px;padding:0 40px}
+    .topbar-inner{max-width:900px}
+    .brand-name{font-size:22px}
+
+    /* ヒーロー：左右2カラム */
+    .hero{padding:60px 0 56px}
+    .hero .container{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      align-items:center;
+      gap:40px;
+    }
+    .hero h1{font-size:42px;line-height:1.35}
+    .hero-sub{font-size:15px}
+    .hero-finalnote{text-align:left}
+    .hero-right-col{display:flex;flex-direction:column;gap:16px;}
+
+    /* サービス：2列 */
+    .service-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .service-card{display:flex;flex-direction:column}
+    .sc-photo{aspect-ratio:16/10}
+
+    section{padding:72px 0}
+    h2.section-title{font-size:30px}
+    .services h2{font-size:28px}
+
+    /* USP：2列 */
+    .usp-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    /* 実績：カード幅広げる */
+    .review{width:320px;}
+
+    /* スタッフ */
+    .staff-grid{gap:24px}
+
+    /* インラインCTA */
+    .inline-cta-inner{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      align-items:center;
+      gap:32px;
+      text-align:left;
+    }
+    .inline-cta-inner .lead{font-size:18px;margin-bottom:8px}
+
+    /* ファイナルCTA */
+    .final h2{font-size:30px}
+    .final .container{
+      display:grid;
+      grid-template-columns:1fr 400px;
+      align-items:center;
+      gap:40px;
+      text-align:left;
+    }
+    .final .badge-soft{display:block;width:fit-content}
+    .final-sub{margin-bottom:0}
+
+    /* スティッキー */
+    .sticky{justify-content:center}
+    .sticky-tel{max-width:420px;flex:0 0 420px}
+
+    /* 料金 */
+    .price-table{font-size:15px}
+    .price-row{padding:16px 24px}
+  }
+
+  @media(min-width:1100px){
+    .container{max-width:1080px;padding:0 48px}
+    .topbar-inner{max-width:1080px}
+    .hero h1{font-size:50px}
+    .hero .container{grid-template-columns:1fr 460px;gap:60px}
+
+    /* サービス：4列 */
+    .service-grid{grid-template-columns:repeat(4,1fr)}
+    .sc-photo{aspect-ratio:1/1}
+
+    .achv-stat .num{font-size:30px}
+    h2.section-title{font-size:34px}
   }
 </style>
 </head>
@@ -969,7 +1162,6 @@
   </div>
   <ul class="drawer-menu">
     <li><a href="#services">サービス一覧</a></li>
-    <li><a href="#anxiety">安心のお約束</a></li>
     <li><a href="#pricing">料金</a></li>
     <li><a href="#achv">実績・口コミ</a></li>
     <li><a href="#staff">スタッフ紹介</a></li>
@@ -989,64 +1181,64 @@
 <!-- ===== HERO ===== -->
 <header class="hero">
   <div class="hero-bg">
-    <img
-      src="images/heroImage.jpg"
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-    >
+    <img src="images/heroImage.jpg" alt="" aria-hidden="true" loading="eager">
   </div>
 
   <div class="container">
-    <h1>
-      事故・故障の現場へ<br>
-      最短<span class="hl"><span class="num">15</span>分</span>で駆けつけます
-    </h1>
-
-    <div class="price-box">
-      <span class="pb-label">基本料金</span>
-      <div class="pb-amount">
-        <span class="pb-num">980</span>
-        <span class="pb-yen">円</span>
-        <span class="pb-from">〜</span>
-        <span class="pb-tax-badge">税込</span>
-      </div>
-      <span class="pb-ribbon">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6z"/></svg>
-        追加料金 一切なし
-      </span>
+    <!-- 左カラム（モバイルでは通常flow） -->
+    <div class="hero-left-col">
+      <h1>
+        事故・故障の現場へ<br>
+        最短<span class="hl"><span class="num">15</span>分</span>で駆けつけます
+      </h1>
+      <p class="hero-finalnote">
+        ※まずは状況だけでもOK／押し売り一切ありません<br>
+        ※料金が合わなければキャンセル可能（キャンセル料0円）
+      </p>
     </div>
 
-    <a class="cta-tel" href="tel:0120000000">
-      <span class="top-label">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        今すぐ電話で状況確認（1分でOK）
-      </span>
-      <span class="number">0120-000-000</span>
-      <p class="footnote">
-        通話料無料／その場で<b>対応可否・概算料金</b>がわかります
-      </p>
-    </a>
+    <!-- 右カラム（モバイルでは価格+CTAが下に続く） -->
+    <div class="hero-right-col">
+      <div class="price-box">
+        <span class="pb-label">基本料金</span>
+        <div class="pb-amount">
+          <span class="pb-num" id="heroPriceNum">0</span>
+          <span class="pb-yen">円</span>
+          <span class="pb-from">〜</span>
+          <span class="pb-tax-badge">税込</span>
+        </div>
+        <span class="pb-underline"></span>
+        <span class="pb-ribbon">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6z"/></svg>
+          追加料金 一切なし
+        </span>
+      </div>
 
-    <p class="hero-finalnote">
-      ※まずは状況だけでもOK／押し売り一切ありません<br>
-      ※料金が合わなければキャンセル可能（キャンセル料0円）
-    </p>
+      <a class="cta-tel" href="tel:0120000000">
+        <span class="top-label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          今すぐ電話で状況確認（1分でOK）
+        </span>
+        <span class="number">0120-000-000</span>
+        <p class="footnote">
+          通話料無料／その場で<b>対応可否・概算料金</b>がわかります
+        </p>
+      </a>
+    </div>
   </div>
 </header>
 
 <!-- ===== SERVICES ===== -->
 <section class="services" id="services">
   <div class="container">
-    <div class="heading">
+    <div class="heading anim-slide-up">
       <span class="eyebrow">SERVICES</span>
       <h2>対応サービス<span class="accent">一覧</span></h2>
       <p class="lead">どの状況にも、24時間ワンストップで対応します。</p>
     </div>
 
     <div class="service-grid">
-
-      <a class="service-card" href="tel:0120000000">
+      <a class="service-card anim-slide-up delay-1" href="tel:0120000000">
         <div class="sc-photo">
           <img src="images/tire.webp" alt="パンク修理" loading="lazy">
           <span class="badge-247">24h対応</span>
@@ -1064,7 +1256,7 @@
         </div>
       </a>
 
-      <a class="service-card" href="tel:0120000000">
+      <a class="service-card anim-slide-up delay-2" href="tel:0120000000">
         <div class="sc-photo">
           <img src="images/battery.webp" alt="バッテリー上がり" loading="lazy">
           <span class="badge-247">24h対応</span>
@@ -1082,7 +1274,7 @@
         </div>
       </a>
 
-      <a class="service-card" href="tel:0120000000">
+      <a class="service-card anim-slide-up delay-3" href="tel:0120000000">
         <div class="sc-photo">
           <img src="images/wrecker.webp" alt="レッカー移動" loading="lazy">
           <span class="badge-247">24h対応</span>
@@ -1100,7 +1292,7 @@
         </div>
       </a>
 
-      <a class="service-card" href="tel:0120000000">
+      <a class="service-card anim-slide-up delay-4" href="tel:0120000000">
         <div class="sc-photo">
           <img src="images/inlock.webp" alt="インロック解除" loading="lazy">
           <span class="badge-247">24h対応</span>
@@ -1117,66 +1309,72 @@
           </div>
         </div>
       </a>
-
     </div>
   </div>
 </section>
 
-
 <!-- ===== EMPATHY ===== -->
 <section class="empathy">
   <div class="container">
-    <span class="eyebrow">こんな状況ですよね</span>
-    <h2 class="section-title">今、<span class="accent">これ</span>で困っていませんか？</h2>
+    <span class="eyebrow anim-slide-up">こんな状況ですよね</span>
+    <h2 class="section-title anim-slide-up delay-1">今、<span class="accent">これ</span>で困っていませんか？</h2>
 
-    <div class="empathy-list">
+    <div class="empathy-list anim-slide-up delay-2">
       <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>事故・故障・パンク・バッテリー、車が動かない</div>
       <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>料金が不安で、電話するのを迷っている</div>
       <div class="empathy-item"><span class="empathy-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>すぐに来てほしいのに、業者が見つからない</div>
     </div>
 
-    <p class="empathy-msg">▼ 一つでも当てはまる方、お電話で一緒に解決します</p>
+    <p class="empathy-msg anim-slide-up delay-3">▼ 一つでも当てはまる方、お電話で一緒に解決します</p>
   </div>
 </section>
 
 <!-- ===== USP ===== -->
 <section class="usp">
   <div class="container">
-    <span class="eyebrow">WHY CHOOSE US</span>
-    <h2 class="section-title">三木・小野・西脇・川西・<br>三田・丹波で<br>選ばれる4つの理由</h2>
-    <p class="section-sub">スピードだけでも、価格だけでもない。<br>"緊急時に頼れる"理由を、4つの軸で。</p>
+    <span class="eyebrow anim-slide-up">WHY CHOOSE US</span>
+    <h2 class="section-title anim-slide-up delay-1">選ばれる<span class="accent">4つの理由</span></h2>
+    <span class="title-line anim-slide-up delay-2"></span>
 
     <div class="usp-grid">
-      <div class="usp-card">
+      <div class="usp-card anim-slide-left delay-1">
         <div class="usp-head">
-          <div class="usp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div><div class="usp-no">POINT 01</div><h3>最短15分・市内即出動</h3></div>
+          <div class="usp-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>最短15分・市内即出動</h3>
+          <span class="usp-no">01</span>
+          <span class="usp-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
         </div>
-        <p>地域内に拠点を分散配置。<b>電話受付から90秒以内に出動指示</b>を出します。三木・小野・西脇エリア 平均15分／川西・三田・丹波エリア 平均25分で到着しています（自社実績）。</p>
+        <div class="usp-body">地域内に拠点を分散配置。<b>電話受付から90秒以内に出動指示</b>を出します。三木・小野・西脇エリア 平均15分／川西・三田・丹波エリア 平均25分で到着しています（自社実績）。</div>
       </div>
 
-      <div class="usp-card">
+      <div class="usp-card anim-slide-left delay-2">
         <div class="usp-head">
-          <div class="usp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <div><div class="usp-no">POINT 02</div><h3>ワンストップ対応</h3></div>
+          <div class="usp-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <h3>電話1本でワンストップ対応</h3>
+          <span class="usp-no">02</span>
+          <span class="usp-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
         </div>
-        <p>レッカー → 修理工場手配 → 保険会社連絡まで、<b>すべて自社で完結</b>。お客様は電話一本でOK。修理工場を別で探す手間も、別途連絡する手間もありません。</p>
+        <div class="usp-body">レッカー → 修理工場手配 → 保険会社連絡まで、<b>すべて自社で完結</b>。お客様は電話一本でOK。修理工場を別で探す手間も、別途連絡する手間もありません。</div>
       </div>
 
-      <div class="usp-card">
+      <div class="usp-card anim-slide-left delay-3">
         <div class="usp-head">
-          <div class="usp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.39 0 4.68.94 6.36 2.64"/></svg></div>
-          <div><div class="usp-no">POINT 03</div><h3>明朗会計・追加料金なし</h3></div>
+          <div class="usp-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <h3>明朗会計・追加料金なし</h3>
+          <span class="usp-no">03</span>
+          <span class="usp-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
         </div>
-        <p>現場で書面のお見積りをご提示。<b>ご納得後にしか作業しません</b>。「気づいたら高額請求」は絶対にありません。料金が合わなければ、断っていただいて構いません。</p>
+        <div class="usp-body">現場で書面のお見積りをご提示。<b>ご納得後にしか作業しません</b>。「気づいたら高額請求」は絶対にありません。料金が合わなければ、断っていただいて構いません。</div>
       </div>
 
-      <div class="usp-card">
+      <div class="usp-card anim-slide-left delay-4">
         <div class="usp-head">
-          <div class="usp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="usp-no">POINT 04</div><h3>北播磨・阪神北の地域密着</h3></div>
+          <div class="usp-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3>地域密着・地元の道を熟知</h3>
+          <span class="usp-no">04</span>
+          <span class="usp-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
         </div>
-        <p>地元の道を熟知したスタッフが対応。<b>狭い住宅街・山道・高速道路</b>もスムーズに到着。地域の保険代理店・修理工場との連携網があるからこその対応速度です。</p>
+        <div class="usp-body">地元の道を熟知したスタッフが対応。<b>狭い住宅街・山道・高速道路</b>もスムーズに到着。地域の保険代理店・修理工場との連携網があるからこその対応速度です。</div>
       </div>
     </div>
   </div>
@@ -1185,7 +1383,7 @@
 <!-- ===== INLINE CTA ===== -->
 <section class="inline-cta">
   <div class="container">
-    <div class="inline-cta-inner">
+    <div class="inline-cta-inner anim-slide-up">
       <p class="lead">迷ったら、まず電話で大丈夫です</p>
       <p class="sub">「頼むかは決めてない」「料金だけ知りたい」もOK。<br>1分で対応可否がわかります。押し売り一切なし。</p>
       <a class="cta-tel" href="tel:0120000000">
@@ -1203,11 +1401,11 @@
 <!-- ===== PRICING ===== -->
 <section class="pricing" id="pricing">
   <div class="container">
-    <span class="eyebrow">PRICING</span>
-    <h2 class="section-title">料金の<span class="accent">内訳</span>をすべて公開</h2>
-    <p class="section-sub">"〜"の正体が見えないから不安になる。<br>私たちは、料金の内訳をすべてオープンにしています。</p>
+    <span class="eyebrow anim-slide-up">PRICING</span>
+    <h2 class="section-title anim-slide-up delay-1">料金の<span class="accent">内訳</span>をすべて公開</h2>
+    <p class="section-sub anim-slide-up delay-2">"〜"の正体が見えないから不安になる。<br>私たちは、料金の内訳をすべてオープンにしています。</p>
 
-    <div class="price-table">
+    <div class="price-table anim-slide-up delay-3">
       <div class="price-row"><div class="item">基本料金（出動）<span class="desc">現場到着までの基本費用</span></div><div class="amount">980<small>円〜</small></div></div>
       <div class="price-row"><div class="item">レッカー牽引<span class="desc">1kmあたり</span></div><div class="amount">500<small>円〜</small></div></div>
       <div class="price-row"><div class="item">バッテリー上がり対応<span class="desc">ジャンピングスタート</span></div><div class="amount">8,000<small>円〜</small></div></div>
@@ -1216,51 +1414,68 @@
       <div class="price-row"><div class="item">キー閉じ込み開錠<span class="desc">インロック対応</span></div><div class="amount">8,000<small>円〜</small></div></div>
       <div class="price-row"><div class="item">夜間料金<span class="desc">22:00〜翌6:00 加算</span></div><div class="amount">+3,000<small>円</small></div></div>
     </div>
-
   </div>
 </section>
 
 <!-- ===== ACHIEVEMENT ===== -->
 <section class="achv" id="achv">
   <div class="container">
-    <span class="eyebrow">TRACK RECORD</span>
-    <h2 class="section-title">数字で見る、<br>私たちの実績</h2>
+    <span class="eyebrow anim-slide-up">TRACK RECORD</span>
+    <h2 class="section-title anim-slide-up delay-1">数字で見る、<br>私たちの実績</h2>
+    <span class="title-line anim-slide-up delay-2"></span>
 
     <div class="achv-stats">
-      <div class="achv-stat"><div class="num">5,000<small>件+</small></div><div class="label">累計対応件数</div></div>
-      <div class="achv-stat"><div class="num">15<small>分</small></div><div class="label">市内 平均到着</div></div>
-      <div class="achv-stat"><div class="num">4.7<small>/5.0</small></div><div class="label">お客様評価</div></div>
+      <div class="achv-stat anim-slide-up delay-1">
+        <div class="num"><span class="count-num" data-target="5000" data-suffix="+">5,000+</span></div>
+        <div class="label">累計対応件数</div>
+      </div>
+      <div class="achv-stat anim-slide-up delay-2">
+        <div class="num"><span class="count-num" data-target="15" data-suffix="分">15分</span></div>
+        <div class="label">市内 平均到着</div>
+      </div>
+      <div class="achv-stat anim-slide-up delay-3">
+        <div class="num"><span class="count-num" data-target="47" data-suffix="" data-decimal="1">4.7</span><small>/5.0</small></div>
+        <div class="label">お客様評価</div>
+      </div>
     </div>
 
-    <div class="reviews">
-      <div class="review">
-        <div class="review-head"><div class="review-avatar">M</div><div class="review-meta"><div class="name">M.K 様</div><div class="area">三木市／40代男性</div></div></div>
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">深夜に高速で故障し、半分パニック状態でした。電話口で落ち着かせてくれて、20分ほどで到着。料金も電話で言われた通りで、明細書もきちんと出してくれて安心しました。</div>
-      </div>
-      <div class="review">
-        <div class="review-head"><div class="review-avatar">S</div><div class="review-meta"><div class="name">S.T 様</div><div class="area">川西市／30代女性</div></div></div>
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">他社は「現場見ないと分からない」だったのに、こちらは電話で概算をくれた。実際の請求もぴったりで、追加もありませんでした。次もここに頼みます。</div>
-      </div>
-      <div class="review">
-        <div class="review-head"><div class="review-avatar">Y</div><div class="review-meta"><div class="name">Y.N 様</div><div class="area">三田市／50代男性</div></div></div>
-        <div class="review-stars">★★★★☆</div>
-        <div class="review-text">保険のロードサービスより早く来てくれた。保険を使うか迷っていたら、自己負担0円になるか電話で一緒に確認してくれて助かりました。</div>
+    <div class="reviews-scroll-wrap anim-fade delay-3">
+      <div class="reviews">
+        <div class="review">
+          <div class="review-head"><div class="review-avatar">M</div><div class="review-meta"><div class="name">M.K 様</div><div class="area">三木市／40代男性</div></div></div>
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">深夜に高速で故障し、半分パニック状態でした。電話口で落ち着かせてくれて、20分ほどで到着。料金も電話で言われた通りで、明細書もきちんと出してくれて安心しました。</div>
+        </div>
+        <div class="review">
+          <div class="review-head"><div class="review-avatar">S</div><div class="review-meta"><div class="name">S.T 様</div><div class="area">川西市／30代女性</div></div></div>
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">他社は「現場見ないと分からない」だったのに、こちらは電話で概算をくれた。実際の請求もぴったりで、追加もありませんでした。次もここに頼みます。</div>
+        </div>
+        <div class="review">
+          <div class="review-head"><div class="review-avatar">Y</div><div class="review-meta"><div class="name">Y.N 様</div><div class="area">三田市／50代男性</div></div></div>
+          <div class="review-stars">★★★★☆</div>
+          <div class="review-text">保険のロードサービスより早く来てくれた。保険を使うか迷っていたら、自己負担0円になるか電話で一緒に確認してくれて助かりました。</div>
+        </div>
+        <div class="review">
+          <div class="review-head"><div class="review-avatar">T</div><div class="review-meta"><div class="name">T.A 様</div><div class="area">小野市／20代女性</div></div></div>
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">夜中に一人でパンクして本当に困っていました。電話したら15分もかからずに来てくれて、料金も事前に教えてもらった通りでした。女性でも安心して頼めます。</div>
+        </div>
       </div>
     </div>
+    <p class="scroll-hint">← 横にスワイプで続きを見る →</p>
   </div>
 </section>
 
 <!-- ===== STAFF ===== -->
 <section class="staff" id="staff">
   <div class="container">
-    <span class="eyebrow">OUR TEAM</span>
-    <h2 class="section-title">対応するのは、<br>顔の見える地元スタッフ</h2>
-    <p class="section-sub">「誰が来るのか分からない」も、不安の一つ。<br>私たちは、対応するスタッフを公開しています。</p>
+    <span class="eyebrow anim-slide-up">OUR TEAM</span>
+    <h2 class="section-title anim-slide-up delay-1">対応するのは、<br>顔の見える地元スタッフ</h2>
+    <p class="section-sub anim-slide-up delay-2">「誰が来るのか分からない」も、不安の一つ。<br>私たちは、対応するスタッフを公開しています。</p>
 
     <div class="staff-grid">
-      <div class="staff-card">
+      <div class="staff-card anim-slide-up delay-3">
         <div class="staff-photo-wrap" style="background:#f7f1e6"><img src="https://api.dicebear.com/9.x/notionists/svg?seed=tanaka-kobe&backgroundColor=f7f1e6&radius=0" alt="代表 田中（イメージ）" loading="lazy"></div>
         <div class="staff-info">
           <div class="name">田中（代表）</div>
@@ -1268,7 +1483,7 @@
           <div class="quote">「お客様が安心できる対応を最優先に。料金で揉めない仕事をします」</div>
         </div>
       </div>
-      <div class="staff-card">
+      <div class="staff-card anim-slide-up delay-4">
         <div class="staff-photo-wrap" style="background:#f7f1e6"><img src="https://api.dicebear.com/9.x/notionists/svg?seed=sato-hyogo&backgroundColor=f7f1e6&radius=0" alt="スタッフ 佐藤（イメージ）" loading="lazy"></div>
         <div class="staff-info">
           <div class="name">佐藤</div>
@@ -1283,14 +1498,14 @@
 <!-- ===== FLOW ===== -->
 <section class="flow">
   <div class="container">
-    <span class="eyebrow">HOW IT WORKS</span>
-    <h2 class="section-title">電話から解決まで、<br><span class="accent">4ステップ</span></h2>
+    <span class="eyebrow anim-slide-up">HOW IT WORKS</span>
+    <h2 class="section-title anim-slide-up delay-1">電話から解決まで、<br><span class="accent">4ステップ</span></h2>
 
     <div class="flow-list">
-      <div class="flow-item"><div class="flow-num">1</div><div class="flow-content"><b>お電話</b><p>現在地・状況をお伝えください。場所が分からなくても、電話で一緒に確認します。お名前・場所だけのご相談もOK。</p></div></div>
-      <div class="flow-item"><div class="flow-num">2</div><div class="flow-content"><b>概算料金のご提示</b><p>電話の段階で、おおよその料金をお伝えします。保険利用の可否もここで確認可能です。</p></div></div>
-      <div class="flow-item"><div class="flow-num">3</div><div class="flow-content"><b>現場到着＆書面お見積り</b><p>最短15分で到着。書面でお見積りをお出しし、ご納得いただいてから作業を開始します。</p></div></div>
-      <div class="flow-item"><div class="flow-num">4</div><div class="flow-content"><b>作業完了・お支払い</b><p>現金／クレジットカード／保険直接精算 対応。明細書を必ずお渡しします。</p></div></div>
+      <div class="flow-item anim-slide-up delay-1"><div class="flow-num">1</div><div class="flow-content"><b>お電話</b><p>現在地・状況をお伝えください。場所が分からなくても、電話で一緒に確認します。お名前・場所だけのご相談もOK。</p></div></div>
+      <div class="flow-item anim-slide-up delay-2"><div class="flow-num">2</div><div class="flow-content"><b>概算料金のご提示</b><p>電話の段階で、おおよその料金をお伝えします。保険利用の可否もここで確認可能です。</p></div></div>
+      <div class="flow-item anim-slide-up delay-3"><div class="flow-num">3</div><div class="flow-content"><b>現場到着＆書面お見積り</b><p>最短15分で到着。書面でお見積りをお出しし、ご納得いただいてから作業を開始します。</p></div></div>
+      <div class="flow-item anim-slide-up delay-4"><div class="flow-num">4</div><div class="flow-content"><b>作業完了・お支払い</b><p>現金／クレジットカード／保険直接精算 対応。明細書を必ずお渡しします。</p></div></div>
     </div>
   </div>
 </section>
@@ -1298,10 +1513,10 @@
 <!-- ===== FAQ ===== -->
 <section class="faq" id="faq">
   <div class="container">
-    <span class="eyebrow">FAQ</span>
-    <h2 class="section-title">よくあるご質問</h2>
+    <span class="eyebrow anim-slide-up">FAQ</span>
+    <h2 class="section-title anim-slide-up delay-1">よくあるご質問</h2>
 
-    <div class="faq-list">
+    <div class="faq-list anim-slide-up delay-2">
       <div class="faq-item">
         <button class="faq-q"><span class="faq-q-text">対応エリアはどこまでですか？</span><span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
         <div class="faq-a">三木市、小野市、西脇市、川西市、三田市、丹波市を中心に対応しております。</div>
@@ -1337,11 +1552,11 @@
 <!-- ===== FINAL CTA ===== -->
 <section class="final" id="contact">
   <div class="container">
-    <span class="badge-soft">三木・小野・西脇・川西・三田・丹波｜24時間受付中</span>
-    <h2>迷ったら、<br><span class="accent">まず電話</span>で大丈夫です</h2>
-    <p class="final-sub">「頼むかは決めてない」「料金だけ知りたい」もOK。<br>押し売り一切なし。料金が合わなければ断ってOKです。</p>
+    <span class="badge-soft anim-slide-up">三木・小野・西脇・川西・三田・丹波｜24時間受付中</span>
+    <h2 class="anim-slide-up delay-1">迷ったら、<br><span class="accent">まず電話</span>で大丈夫です</h2>
+    <p class="final-sub anim-slide-up delay-2">「頼むかは決めてない」「料金だけ知りたい」もOK。<br>押し売り一切なし。料金が合わなければ断ってOKです。</p>
 
-    <a class="cta-tel" href="tel:0120000000">
+    <a class="cta-tel anim-slide-up delay-3" href="tel:0120000000">
       <span class="top-label">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         今すぐ電話で状況確認（1分でOK）
@@ -1349,7 +1564,6 @@
       <span class="number">0120-000-000</span>
       <p class="footnote">通話料無料／その場で対応可否・概算料金がわかります</p>
     </a>
-
   </div>
 </section>
 
@@ -1375,12 +1589,31 @@
 </div>
 
 <script>
-  // Drawer menu
+  /* ============================================
+     ヒーロー価格カウントアップ（ページ読み込み時）
+  ============================================ */
+  (function(){
+    var el = document.getElementById('heroPriceNum');
+    if(!el) return;
+    var target = 980, dur = 900, s = performance.now();
+    function step(now){
+      var p = Math.min((now - s) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(e * target);
+      if(p < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  })();
+
+  /* ============================================
+     Drawer menu
+  ============================================ */
   (function(){
     var toggle = document.getElementById('menuToggle');
-    var close = document.getElementById('menuClose');
+    var close  = document.getElementById('menuClose');
     var drawer = document.getElementById('drawer');
-    var overlay = document.getElementById('drawerOverlay');
+    var overlay= document.getElementById('drawerOverlay');
     function open(){
       drawer.classList.add('open');
       overlay.classList.add('open');
@@ -1398,21 +1631,33 @@
     toggle.addEventListener('click', open);
     close.addEventListener('click', shut);
     overlay.addEventListener('click', shut);
-    drawer.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', shut);
-    });
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') shut();
-    });
+    drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', shut); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') shut(); });
   })();
 
+  /* ============================================
+     FAQ accordion
+  ============================================ */
   document.querySelectorAll('.faq-item').forEach(function(item){
     item.querySelector('.faq-q').addEventListener('click', function(){
       item.classList.toggle('open');
     });
   });
 
-  // Smart sticky CTA: hide when any in-flow .cta-tel is visible
+  /* ============================================
+     USP accordion — クリックで本文展開（1つだけ開く）
+  ============================================ */
+  document.querySelectorAll('.usp-card').forEach(function(card){
+    card.querySelector('.usp-head').addEventListener('click', function(){
+      var isOpen = card.classList.contains('open');
+      document.querySelectorAll('.usp-card').forEach(function(c){ c.classList.remove('open'); });
+      if(!isOpen) card.classList.add('open');
+    });
+  });
+
+  /* ============================================
+     Smart sticky CTA
+  ============================================ */
   (function(){
     var sticky = document.querySelector('.sticky');
     var inflow = document.querySelectorAll('.cta-tel');
@@ -1428,18 +1673,71 @@
     inflow.forEach(function(el){ io.observe(el); });
   })();
 
+  /* ============================================
+     スクロールトリガーアニメーション（1回のみ）
+  ============================================ */
   if('IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
+    var animIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
         if(e.isIntersecting){
           e.target.classList.add('in');
-          io.unobserve(e.target);
+          animIO.unobserve(e.target);
         }
       });
-    },{threshold:0.12});
-    document.querySelectorAll('section .container > *').forEach(el=>{
-      el.classList.add('fade-up');
-      io.observe(el);
+    },{threshold:0.12, rootMargin:'0px 0px -20px 0px'});
+
+    document.querySelectorAll('.anim-slide-up, .anim-slide-left, .anim-fade').forEach(function(el){
+      animIO.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.anim-slide-up, .anim-slide-left, .anim-fade').forEach(function(el){
+      el.classList.add('in');
+    });
+  }
+
+  /* ============================================
+     カウントアップアニメーション（実績数字）
+  ============================================ */
+  function countUp(el, target, isDecimal, suffix){
+    var duration = 1200;
+    var start = performance.now();
+    function step(now){
+      var progress = Math.min((now - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(ease * target);
+      if(isDecimal){
+        el.textContent = (current / 10).toFixed(1);
+      } else if(target >= 1000){
+        el.textContent = current.toLocaleString() + suffix;
+      } else {
+        el.textContent = current + suffix;
+      }
+      if(progress < 1) requestAnimationFrame(step);
+      else {
+        if(isDecimal) el.textContent = (target / 10).toFixed(1);
+        else if(target >= 1000) el.textContent = target.toLocaleString() + suffix;
+        else el.textContent = target + suffix;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  if('IntersectionObserver' in window){
+    var countIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var el = e.target;
+          var target  = parseInt(el.dataset.target, 10);
+          var suffix  = el.dataset.suffix || '';
+          var decimal = el.dataset.decimal === '1';
+          countUp(el, target, decimal, suffix);
+          countIO.unobserve(el);
+        }
+      });
+    },{threshold:0.5});
+
+    document.querySelectorAll('.count-num').forEach(function(el){
+      countIO.observe(el);
     });
   }
 </script>
