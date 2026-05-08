@@ -1202,16 +1202,12 @@
       <div class="price-box">
         <span class="pb-label">基本料金</span>
         <div class="pb-amount">
-          <span class="pb-num" id="heroPriceNum">0</span>
+          <span class="pb-num">980</span>
           <span class="pb-yen">円</span>
           <span class="pb-from">〜</span>
           <span class="pb-tax-badge">税込</span>
         </div>
         <span class="pb-underline"></span>
-        <span class="pb-ribbon">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6z"/></svg>
-          追加料金 一切なし
-        </span>
       </div>
 
       <a class="cta-tel" href="tel:0120000000">
@@ -1430,11 +1426,11 @@
         <div class="label">累計対応件数</div>
       </div>
       <div class="achv-stat anim-slide-up delay-2">
-        <div class="num"><span class="count-num" data-target="15" data-suffix="分">15分</span></div>
+        <div class="num">15<small>分</small></div>
         <div class="label">市内 平均到着</div>
       </div>
       <div class="achv-stat anim-slide-up delay-3">
-        <div class="num"><span class="count-num" data-target="47" data-suffix="" data-decimal="1">4.7</span><small>/5.0</small></div>
+        <div class="num">4.7<small>/5.0</small></div>
         <div class="label">お客様評価</div>
       </div>
     </div>
@@ -1589,23 +1585,6 @@
 </div>
 
 <script>
-  /* ============================================
-     ヒーロー価格カウントアップ（ページ読み込み時）
-  ============================================ */
-  (function(){
-    var el = document.getElementById('heroPriceNum');
-    if(!el) return;
-    var target = 980, dur = 900, s = performance.now();
-    function step(now){
-      var p = Math.min((now - s) / dur, 1);
-      var e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.floor(e * target);
-      if(p < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    }
-    requestAnimationFrame(step);
-  })();
-
   /* ============================================
      Drawer menu
   ============================================ */
